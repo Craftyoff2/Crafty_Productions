@@ -1,7 +1,8 @@
 body {
     background: black;
     color: white;
-    overflow-x: hidden;
+    overflow-x: hidden; /* prevents horizontal scroll */
+    margin: 0;
 }
 
 /* Background layers */
@@ -21,7 +22,6 @@ body {
 }
 
 /* HERO */
-/* HERO */
 .hero {
     scale: 1.6;
     min-height: 100vh;
@@ -35,17 +35,19 @@ body {
 }
 
 .logo {
-    width: clamp(250px, 35vw, 500px); /* grows with screen, max 500px, min 250px */
+    width: clamp(200px, 35vw, 500px);
     margin-bottom: 2vh;
     filter: drop-shadow(0 0 15px #ff00ff)
             drop-shadow(0 0 35px #7a00ff);
+    max-width: 90%; /* prevent overflow on mobile */
 }
 
 h1 {
-    font-size: clamp(2rem, 5vw, 4rem); /* scales smoothly with viewport width */
+    font-size: clamp(2rem, 5vw, 4rem);
     background: linear-gradient(90deg, #ff4fd8, #8f3cff);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    text-align: center;
 }
 
 p {
@@ -59,25 +61,26 @@ p {
     scale: 1.1;
     min-height: 100vh;
     display: flex;
-    gap: clamp(15px, 3vw, 40px); /* spacing adjusts with screen */
+    gap: clamp(15px, 3vw, 40px);
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
 }
 
 .menu button {
-    padding: clamp(12px, 2vw, 24px) clamp(24px, 4vw, 48px); /* responsive padding */
-    font-size: clamp(1rem, 2vw, 1.5rem); /* responsive font size */
+    padding: clamp(12px, 2vw, 24px) clamp(24px, 4vw, 48px);
+    font-size: clamp(1rem, 2vw, 1.5rem);
     background: linear-gradient(135deg, #ff4fd8, #8f3cff);
     border: none;
     color: white;
-    border-radius: clamp(10px, 2vw, 18px); /* responsive border radius */
+    border-radius: clamp(10px, 2vw, 18px);
     cursor: pointer;
 
     opacity: 0;
     transform: translateY(60px) scale(0.95);
     transition: all 0.7s ease-out;
     box-shadow: 0 0 25px rgba(255,0,255,0.4);
+    max-width: 90vw; /* prevent overflow */
 }
 
 .menu button.show {
@@ -90,7 +93,7 @@ p {
 }
 
 button {
-    position: relative; /* needed for ::before to be positioned relative to button */
+    position: relative;
     display: inline-block;
     padding: 0.9rem 2rem;
     border-radius: 500px;
@@ -102,19 +105,20 @@ button {
     font-weight: 700;
     letter-spacing: 0.05rem;
     background: linear-gradient(135deg, #ff4fd8, #8f3cff);
-    color: white; /* default text color */
-    z-index: 1; /* make sure button itself is above pseudo-elements */
+    color: white;
+    z-index: 1;
+    max-width: 90vw; /* prevent overflow on mobile */
 }
 
 button span {
     position: relative;
-    z-index: 2; /* make text above everything */
-    color: white; /* default text color */
+    z-index: 2;
+    color: white;
     transition: color 0.4s;
 }
 
 button:hover span {
-    color: black; /* text on hover */
+    color: black;
 }
 
 button::before {
@@ -127,16 +131,18 @@ button::before {
     background: #000;
     transform: skew(30deg);
     transition: transform 0.4s cubic-bezier(0.3, 1, 0.8, 1);
-    z-index: 1; /* make pseudo-element below text */
+    z-index: 1;
 }
 
 button:hover::before {
     transform: translate3d(100%, 0, 0);
 }
 
+/* INFO PANEL */
 .info-panel {
     position: absolute;
-    width: 320px;
+    width: 90%;
+    max-width: 320px;
     background: rgba(0, 0, 0, 0.85);
     color: #fff;
     padding: 20px;
@@ -153,14 +159,12 @@ button:hover::before {
     line-height: 1.4;
 }
 
-/* visible panel */
 .info-panel.show {
     opacity: 1;
-    max-height: 500px; /* will expand if content longer */
+    max-height: 500px;
     top: calc(20px + 60px);
 }
 
-/* blinking cursor */
 .cursor {
     display: inline-block;
     width: 10px;
@@ -170,12 +174,16 @@ button:hover::before {
     0%, 50% { opacity: 1; }
     50.1%, 100% { opacity: 0; }
 }
+
+/* NEWS */
 .news {
     margin-top: 120px;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 30px;
+    padding: 0 10px;
+    box-sizing: border-box;
 }
 
 .news-title {
@@ -184,6 +192,7 @@ button:hover::before {
     background: linear-gradient(135deg, #ff4fd8, #8f3cff);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    text-align: center;
 }
 
 .news-item {
@@ -208,7 +217,7 @@ button:hover::before {
     transition: transform 0.6s ease, box-shadow 0.6s ease;
 }
 
-/* 🔥 Alternating offset */
+/* Alternating offset for desktop */
 .news-item:nth-child(odd) {
     transform: translateX(-60px);
 }
@@ -217,31 +226,66 @@ button:hover::before {
     transform: translateX(60px);
 }
 
-/* Hover polish */
 .news-item:hover {
     transform: translateX(0) scale(1.03);
     box-shadow: 0 0 35px rgba(143, 60, 255, 0.5);
 }
+
+/* Subbuttons */
 .Subbutton {
     scale: 0.7;
+    max-width: 90%;
 }
+
+/* Centered footer text */
 .ndhy {
     scale: 1;
-     display: flex;
-    justify-content: center; /* Horizontal center */
-    align-items: center;     /* Vertical center */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 40px 0;
 }
-.development {
-     background: rgba(0, 0, 0, 0.55);
-    border-radius: 14px;
 
+/* Development card */
+.development {
+    background: rgba(0, 0, 0, 0.55);
+    border-radius: 14px;
     border: 2px solid transparent;
     background-image:
         linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
         linear-gradient(135deg, #ff4fd8, #8f3cff);
     background-origin: border-box;
     background-clip: padding-box, border-box;
-
     box-shadow: 0 0 25px rgba(255, 79, 216, 0.25);
+}
 
+/* ===== Mobile Fixes ===== */
+@media (max-width: 768px) {
+    .news-item:nth-child(odd),
+    .news-item:nth-child(even) {
+        transform: translateX(0); /* remove zig-zag to fit mobile */
+    }
+
+    .menu button {
+        font-size: 1rem;
+        padding: 10px 18px;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    .logo {
+        width: 60vw;
+    }
+
+    .news {
+        margin-top: 80px;
+        gap: 20px;
+    }
+
+    .Subbutton {
+        transform: scale(0.7);
+    }
 }
