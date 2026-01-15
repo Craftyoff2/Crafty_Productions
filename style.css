@@ -1,633 +1,247 @@
-@media (max-width: 600px) {
-  .server-rules.open {
-    max-height: 2000px;
-  }
-}
-/* Arrow and rules toggle styles for Debatni Denik server */
-.arrow-toggle {
-  cursor: pointer;
-  margin: 10px auto 0 auto;
-  text-align: center;
-  font-size: 2.5rem;
-  user-select: none;
-  transition: color 0.2s;
-  
-}
-.arrow-toggle:hover {
-  color: #4a90e2;
-}
-.arrow-icon {
-  display: inline-block;
-  transition: transform 0.3s;
-  background: radial-gradient(circle,rgba(89, 11, 75, 1) 0%, rgba(9, 1, 15, 1) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  color: transparent;
-}
-.server-rules {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.5s cubic-bezier(0.4,0,0.2,1);
-  background: radial-gradient(circle,rgba(150, 0, 250, 1) 0%, rgba(187, 16, 222, 1) 100%);
-  border-radius: 20px;
-  margin: 0 auto 10px auto;
-  width: 90%;
-}
-.server-rules.open {
-  max-height: 500px;
-  padding: 20px 10px;
-}
-.rules-content {
-  color: #fff;
-  text-align: left;
-  font-size: 1.1rem;
-}
-@media (max-width: 600px) {
-  html, body {
-    overflow-x: hidden;
-  }
-}
-.title {
- text-align: center;
-    font-size: 700%;
-    padding-top: 20px;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-
-    /* Gradient text */
-    background: linear-gradient(305deg,
-        rgb(0, 0, 0) 7%,
-        rgba(83, 16, 145, 1) 36%,
-        rgba(83, 16, 145, 1) 50%,
-        rgba(149, 26, 156, 1) 70%,
-        rgba(137, 44, 184, 1) 100%,
-        rgba(71, 15, 97, 1) 86%);
-    background-clip: text;       /* standard version */
-    -webkit-background-clip: text; 
-    -webkit-text-fill-color: transparent;
-
-    /* Optional: keep your shadow */
-    text-shadow: 5px 5px rgba(119, 41, 192, 0.6);
-}
 body {
-  margin: 0;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  background: linear-gradient(166deg,rgba(0, 0, 0, 1) 7%, rgba(83, 16, 145, 1) 36%, rgba(83, 16, 145, 1) 50%, rgba(149, 26, 156, 1) 70%, rgba(137, 44, 184, 1) 100%, rgba(71, 15, 97, 1) 86%);
-}
-.h2_projectstxt {
-    padding-top: -60%;
-    color: rgb(132, 0, 255);
-    text-shadow: 8px 8px rgb(11, 1, 20);
-}
-.Social {
-  text-align: center;
-  padding-top: 1;
-  position: static;
-}
-.Social button {
-  border-radius: 0px 50px 0px 50px;
-  scale: 2;
-  margin-left: 60px;
-  margin-right: 60px;
+    background: black;
+    color: white;
+    overflow-x: hidden;
 }
 
-@media (max-width: 600px) {
-  .Social {
+/* Background layers */
+#bg, .overlay {
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+}
+
+.overlay {
+    background: radial-gradient(circle at top,
+        rgba(255, 0, 255, 0.15),
+        rgba(120, 0, 255, 0.1),
+        rgba(0, 0, 0, 0.9)
+    );
+    z-index: -1;
+}
+
+/* HERO */
+/* HERO */
+.hero {
+    scale: 1.6;
+    min-height: 100vh;
+    padding: 5vh 5vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.logo {
+    width: clamp(250px, 35vw, 500px); /* grows with screen, max 500px, min 250px */
+    margin-bottom: 2vh;
+    filter: drop-shadow(0 0 15px #ff00ff)
+            drop-shadow(0 0 35px #7a00ff);
+}
+
+h1 {
+    font-size: clamp(2rem, 5vw, 4rem); /* scales smoothly with viewport width */
+    background: linear-gradient(90deg, #ff4fd8, #8f3cff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+p {
+    font-size: clamp(1rem, 2.5vw, 1.5rem);
+    opacity: 0.8;
+    margin-top: 1vh;
+}
+
+/* MENU */
+.menu {
+    scale: 1.1;
+    min-height: 100vh;
+    display: flex;
+    gap: clamp(15px, 3vw, 40px); /* spacing adjusts with screen */
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.menu button {
+    padding: clamp(12px, 2vw, 24px) clamp(24px, 4vw, 48px); /* responsive padding */
+    font-size: clamp(1rem, 2vw, 1.5rem); /* responsive font size */
+    background: linear-gradient(135deg, #ff4fd8, #8f3cff);
+    border: none;
+    color: white;
+    border-radius: clamp(10px, 2vw, 18px); /* responsive border radius */
+    cursor: pointer;
+
+    opacity: 0;
+    transform: translateY(60px) scale(0.95);
+    transition: all 0.7s ease-out;
+    box-shadow: 0 0 25px rgba(255,0,255,0.4);
+}
+
+.menu button.show {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+.menu button:hover {
+    transform: translateY(-6px) scale(1.05);
+}
+
+button {
+    position: relative; /* needed for ::before to be positioned relative to button */
+    display: inline-block;
+    padding: 0.9rem 2rem;
+    border-radius: 500px;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    font-family: inherit;
+    font-size: 17px;
+    font-weight: 700;
+    letter-spacing: 0.05rem;
+    background: linear-gradient(135deg, #ff4fd8, #8f3cff);
+    color: white; /* default text color */
+    z-index: 1; /* make sure button itself is above pseudo-elements */
+}
+
+button span {
+    position: relative;
+    z-index: 2; /* make text above everything */
+    color: white; /* default text color */
+    transition: color 0.4s;
+}
+
+button:hover span {
+    color: black; /* text on hover */
+}
+
+button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -10%;
+    width: 120%;
+    height: 100%;
+    background: #000;
+    transform: skew(30deg);
+    transition: transform 0.4s cubic-bezier(0.3, 1, 0.8, 1);
+    z-index: 1; /* make pseudo-element below text */
+}
+
+button:hover::before {
+    transform: translate3d(100%, 0, 0);
+}
+
+.info-panel {
+    position: absolute;
+    width: 320px;
+    background: rgba(0, 0, 0, 0.85);
+    color: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    border: 2px solid;
+    border-image: linear-gradient(135deg, #ff4fd8, #8f3cff) 1;
+    box-shadow: 0 0 15px #ff4fd8, 0 0 30px #8f3cff;
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.6s ease, opacity 0.6s ease, top 0.6s ease;
+    z-index: 10;
+    font-family: monospace;
+    line-height: 1.4;
+}
+
+/* visible panel */
+.info-panel.show {
+    opacity: 1;
+    max-height: 500px; /* will expand if content longer */
+    top: calc(20px + 60px);
+}
+
+/* blinking cursor */
+.cursor {
+    display: inline-block;
+    width: 10px;
+    animation: blink 1s steps(1) infinite;
+}
+@keyframes blink {
+    0%, 50% { opacity: 1; }
+    50.1%, 100% { opacity: 0; }
+}
+.news {
+    margin-top: 120px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 20px;
-  }
-  .Social button {
-    margin-left: 0;
-    margin-right: 0;
-    scale: 1.5;
-    width: 80vw;
-    max-width: 300px;
-  }
-}
-.Youtube {
-  position: relative;
-  border-radius: 0px 50px 0px 50px;
-  scale: 2;
-  margin-left: 60px;
-  margin-right: 60px;
-  cursor: pointer;
-  overflow: hidden;
-  background: transparent;
-  z-index: 0;
-  transition: box-shadow 0.4s ease;
+    gap: 30px;
 }
 
-.Youtube::before,
-.Youtube::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  z-index: -1;
-  transition: opacity 0.6s ease;
+.news-title {
+    font-size: 2rem;
+    margin-bottom: 40px;
+    background: linear-gradient(135deg, #ff4fd8, #8f3cff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
-/* default gradient (red → white → red) */
-.Youtube::before {
-  background: linear-gradient(90deg,
-    rgba(255, 0, 0, 1) 0%,
-    rgba(255, 255, 255, 1) 50%,
-    rgba(255, 0, 0, 1) 100%);
-  opacity: 1;
+.news-item {
+    max-width: 520px;
+    width: 100%;
+    padding: 18px 24px;
+    background: rgba(0, 0, 0, 0.55);
+    border-radius: 14px;
+
+    border: 2px solid transparent;
+    background-image:
+        linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+        linear-gradient(135deg, #ff4fd8, #8f3cff);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+
+    box-shadow: 0 0 25px rgba(255, 79, 216, 0.25);
+
+    font-family: monospace;
+    color: #eee;
+
+    transition: transform 0.6s ease, box-shadow 0.6s ease;
 }
 
-/* hover gradient (white → red → white) */
-.Youtube::after {
-  background: linear-gradient(90deg,
-    rgba(255, 255, 255, 1) 0%,
-    rgba(255, 0, 0, 1) 50%,
-    rgba(255, 255, 255, 1) 100%);
-  opacity: 0;
+/* 🔥 Alternating offset */
+.news-item:nth-child(odd) {
+    transform: translateX(-60px);
 }
 
-.Youtube:hover::after { opacity: 1; }
-.Youtube:hover::before { opacity: 0; }
-
-/* optional: shadow on hover */
-.Youtube:hover {
-  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),
-              0 17px 50px 0 rgba(0,0,0,0.19);
-}
-.Discord {
-  position: relative;
-  border-radius: 0px 50px 0px 50px;
-  scale: 2;
-  margin-left: 60px;
-  margin-right: 60px;
-  cursor: pointer;
-  overflow: hidden;
-  background: transparent;
-  z-index: 0;
-  transition: box-shadow 0.4s ease;
+.news-item:nth-child(even) {
+    transform: translateX(60px);
 }
 
-.Discord::before,
-.Discord::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  z-index: -1;
-  transition: opacity 0.6s ease;
+/* Hover polish */
+.news-item:hover {
+    transform: translateX(0) scale(1.03);
+    box-shadow: 0 0 35px rgba(143, 60, 255, 0.5);
 }
-
-/* default gradient (blue → light blue → blue) */
-.Discord::before {
-  background: linear-gradient(90deg,
-    rgba(86, 102, 255, 1) 0%,
-    rgba(181, 185, 255, 1) 50%,
-    rgba(86, 102, 255, 1) 100%);
-  opacity: 1;
+.Subbutton {
+    scale: 0.7;
 }
-
-/* hover gradient (light blue → blue → light blue) */
-.Discord::after {
-  background: linear-gradient(90deg,
-    rgba(181, 185, 255, 1) 0%,
-    rgba(86, 102, 255, 1) 50%,
-    rgba(181, 185, 255, 1) 100%);
-  opacity: 0;
+.ndhy {
+    scale: 1;
+     display: flex;
+    justify-content: center; /* Horizontal center */
+    align-items: center;     /* Vertical center */
 }
+.development {
+     background: rgba(0, 0, 0, 0.55);
+    border-radius: 14px;
 
-.Discord:hover::after { opacity: 1; }
-.Discord:hover::before { opacity: 0; }
+    border: 2px solid transparent;
+    background-image:
+        linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+        linear-gradient(135deg, #ff4fd8, #8f3cff);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
 
-/* optional shadow on hover */
-.Discord:hover {
-  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),
-              0 17px 50px 0 rgba(0,0,0,0.19);
-}
-.Tiktok {
-  position: relative;
-  border-radius: 0px 50px 0px 50px;
-  scale: 2;
-  margin-left: 60px;
-  margin-right: 60px;
-  cursor: pointer;
-  overflow: hidden;
-  background: transparent;
-  z-index: 0;
-  transition: box-shadow 0.4s ease;
-}
+    box-shadow: 0 0 25px rgba(255, 79, 216, 0.25);
 
-.Tiktok::before,
-.Tiktok::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  z-index: -1;
-  transition: opacity 0.6s ease;
-}
-
-/* default gradient (multi-color) */
-.Tiktok::before {
-  background: linear-gradient(90deg,
-    rgba(35, 241, 231, 1) 0%,
-    rgba(255, 46, 86, 1) 20%,
-    rgba(0, 0, 0, 1) 35%,
-    rgba(255, 255, 255, 1) 50%,
-    rgba(0, 0, 0, 1) 65%,
-    rgba(255, 46, 86, 1) 80%,
-    rgba(35, 241, 231, 1) 100%);
-  opacity: 1;
-}
-
-/* hover gradient (multi-color inverted) */
-.Tiktok::after {
-  background: linear-gradient(90deg,
-    rgba(255, 255, 255, 1) 0%,
-    rgba(0, 0, 0, 1) 20%,
-    rgba(255, 46, 86, 1) 35%,
-    rgba(35, 241, 231, 1) 50%,
-    rgba(255, 46, 86, 1) 65%,
-    rgba(0, 0, 0, 1) 80%,
-    rgba(255, 255, 255, 1) 100%);
-  opacity: 0;
-}
-
-.Tiktok:hover::after { opacity: 1; }
-.Tiktok:hover::before { opacity: 0; }
-
-/* optional shadow on hover */
-.Tiktok:hover {
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2),
-              0 6px 20px 0 rgba(0,0,0,0.19);
-}
-.Twitch {
-  position: relative;
-  border-radius: 0px 50px 0px 50px;
-  scale: 2;
-  margin-left: 60px;
-  margin-right: 60px;
-  cursor: pointer;
-  overflow: hidden;
-  background: transparent;
-  z-index: 0;
-  transition: box-shadow 0.4s ease;
-}
-
-.Twitch::before,
-.Twitch::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  z-index: -1;
-  transition: opacity 0.6s ease;
-}
-
-/* default gradient (purple → white → purple) */
-.Twitch::before {
-  background: linear-gradient(90deg,
-    rgba(134, 82, 246, 1) 20%,
-    rgba(255, 255, 255, 1) 50%,
-    rgba(134, 82, 246, 1) 80%);
-  opacity: 1;
-}
-
-/* hover gradient (white → purple → white) */
-.Twitch::after {
-  background: linear-gradient(90deg,
-    rgba(255, 255, 255, 1) 20%,
-    rgba(134, 82, 246, 1) 50%,
-    rgba(255, 255, 255, 1) 80%);
-  opacity: 0;
-}
-
-.Twitch:hover::after { opacity: 1; }
-.Twitch:hover::before { opacity: 0; }
-
-/* optional shadow on hover */
-.Twitch:hover {
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2),
-              0 6px 20px 0 rgba(0,0,0,0.19);
-}
-.credits {
-text-align: right;
-padding-right: 5px;
-}
-.nty {
-    text-align: center;
-    margin: 30;
-    text-shadow: 10px 10px rgb(101, 31, 134);
-}
-
-
-/*-------------------------- Category List Below /CLB/--------------------------*/
-
-.Category_Discord_Bots {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  text-align: center;
-  scale: 1;
-  margin-top: 100px; /* added px */
-  color: rgb(155, 49, 255);
-  text-shadow: 10px 10px rgb(52, 5, 73);
-
-  font-size: 48px;     /* keep your size (adjust if needed) */
-  font-weight: bold;
-  white-space: nowrap; /* stops breaking to new line */
-}
-
-.Category_Discord_Bots::before,
-.Category_Discord_Bots::after {
-  content: "";
-  flex: 1;
-  border-bottom: 4px solid rgb(155, 49, 255); /* same color as text */
-  margin: 0 20px; /* spacing around text */
-}
-.Category_Discord_Servers {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  text-align: center;
-  scale: 1;
-  margin-top: 100px; /* added px */
-  color: rgb(155, 49, 255);
-  text-shadow: 10px 10px rgb(52, 5, 73);
-
-  font-size: 48px;     /* keep your size (adjust if needed) */
-  font-weight: bold;
-  white-space: nowrap; /* stops breaking to new line */
-}
-
-.Category_Discord_Servers::before,
-.Category_Discord_Servers::after {
-  content: "";
-  flex: 1;
-  border-bottom: 4px solid rgb(155, 49, 255); /* same color as text */
-  margin: 0 20px; /* spacing around text */
-  }
-
-
-.Category_Other_Websites {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  text-align: center;
-  scale: 1;
-  margin-top: 100px; /* added px */
-  color: rgb(155, 49, 255);
-  text-shadow: 10px 10px rgb(52, 5, 73);
-
-  font-size: 48px;     /* keep your size (adjust if needed) */
-  font-weight: bold;
-  white-space: nowrap; /* stops breaking to new line */
-}
-
-.Category_Other_Websites::before,
-.Category_Other_Websites::after {
-  content: "";
-  flex: 1;
-  border-bottom: 4px solid rgb(155, 49, 255); /* same color as text */
-  margin: 0 20px; /* spacing around text */
-}
-/*-------------------------- Category List Above /CLA/--------------------------*/
-
-
-/*-------------------------- Links List Below /LLB/--------------------------*/
-
-.Discord_Bot_Arnost_invite_link_div {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  margin-top: 40px;
-  padding-left: 0;
-}
-.Discord_Bot_Arnost_invite_link {
-  border-radius: 0px 50px 0px 50px;
-  scale: 2;
-  cursor: pointer;
-  overflow: hidden;
-  background: transparent;
-  z-index: 0;
-  transition: box-shadow 0.4s ease;
-  margin-bottom: 10px;
-  margin-left: 0;
-  margin-right: 0;
-}
-.DDDSILD {
-  text-align: center;
-  padding-left: 0;
-  padding-right: 0;
-  max-width: 420px;
-  width: 90%;
-  margin: 0 auto 10px auto;
-  word-break: break-word;
-}
-
-.Discord_Bot_Arnost_invite_link::before,
-.Discord_Bot_Arnost_invite_link::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  z-index: -1;
-  transition: opacity 0.6s ease;
-}
-
-/* default gradient (blue → light blue → blue) */
-.Discord_Bot_Arnost_invite_link::before {
-  /* default gradient */
-  background: radial-gradient(circle,
-    rgba(38, 30, 17, 1) 0%,
-    rgba(69, 51, 26, 1) 16%,
-    rgba(147, 127, 82, 1) 43%,
-    rgba(171, 148, 96, 1) 60%,
-    rgba(171, 148, 96, 1) 76%,
-    rgba(54, 82, 1, 1) 88%);
-  opacity: 1;
-}
-
-.Discord_Bot_Arnost_invite_link::after {
-  /* opposite gradient for hover */
-  background: radial-gradient(circle,
-    rgba(54, 82, 1, 1) 0%,
-    rgba(171, 148, 96, 1) 12%,
-    rgba(171, 148, 96, 1) 28%,
-    rgba(147, 127, 82, 1) 57%,
-    rgba(69, 51, 26, 1) 84%,
-    rgba(38, 30, 17, 1) 100%);
-  opacity: 0;
-}
-
-.Discord_Bot_Arnost_invite_link:hover::after { opacity: 1; }
-.Discord_Bot_Arnost_invite_link:hover::before { opacity: 0; }
-
-/* optional shadow on hover */
-.Discord_Bot_Arnost_invite_link:hover {
-  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),
-              0 17px 50px 0 rgba(0,0,0,0.19);
-}
-
-
-.Discord_Debatni_Denik_Server_invite_link_div {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  margin-top: 40px;
-  padding-left: 0;
-}
-.Discord_Debatni_Denik_Server_invite_link {
-  border-radius: 50px 0px 50px 0px;
-  scale: 2;
-  cursor: pointer;
-  overflow: hidden;
-  background: transparent;
-  z-index: 0;
-  transition: box-shadow 0.4s ease;
-  margin-bottom: 10px;
-  margin-left: 0;
-  margin-right: 0;
-  color: white;
-}
-.DBAILD {
-  text-align: center;
-  padding-left: 0;
-  padding-right: 0;
-  max-width: 420px;
-  width: 90%;
-  margin: 0 auto 10px auto;
-  word-break: break-word;
-}
-
-.Discord_Debatni_Denik_Server_invite_link::before,
-.Discord_Debatni_Denik_Server_invite_link::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  z-index: -1;
-  transition: opacity 0.6s ease;
-}
-
-/* default gradient (blue → light blue → blue) */
-.Discord_Debatni_Denik_Server_invite_link::before {
-  background: linear-gradient(90deg,
-    rgb(255, 0, 0) 0%,
-    rgb(0, 0, 0) 50%,
-    rgba(255, 0, 0) 100%);
-  opacity: 1;
-}
-
-/* hover gradient (light blue → blue → light blue) */
-.Discord_Debatni_Denik_Server_invite_link::after {
-  background: linear-gradient(90deg,
-    rgb(0, 0, 0) 0%,
-    rgba(255, 0, 0) 50%,
-    rgba(0, 0, 0) 100%);
-  opacity: 0;
-}
-
-.Discord_Debatni_Denik_Server_invite_link:hover::after { opacity: 1; }
-.Discord_Debatni_Denik_Server_invite_link:hover::before { opacity: 0; }
-
-/* optional shadow on hover */
-.Discord_Debatni_Denik_Server_invite_link:hover {
-  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),
-              0 17px 50px 0 rgba(0,0,0,0.19);
-}
-
-
-.Craftys_Gallery_btn_div {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  margin-top: 40px;
-  padding-left: 0;
-}
-.Craftys_Gallery_btn {
-  border-radius: 11px;
-  scale: 2;
-  cursor: pointer;
-  overflow: hidden;
-  background: transparent;
-  z-index: 0;
-  transition: box-shadow 0.4s ease;
-  margin-bottom: 10px;
-  margin-left: 0;
-  margin-right: 0;
-  color: rgb(7, 5, 5);
-}
-.DBAILD {
-  text-align: center;
-  padding-left: 0;
-  padding-right: 0;
-  max-width: 420px;
-  width: 90%;
-  margin: 0 auto 10px auto;
-  word-break: break-word;
-}
-
-.Craftys_Gallery_btn::before,
-.Craftys_Gallery_btn::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  z-index: -1;
-  transition: opacity 0.6s ease;
-}
-
-/* default gradient (blue → light blue → blue) */
-.Craftys_Gallery_btn::before {
-  background: linear-gradient(90deg,
-    rgb(29, 145, 207, 1) 0%,
-    rgb(24, 37, 184, 1) 50%,
-    rgba(29, 145, 207, 1) 100%);
-  opacity: 1;
-}
-
-/* hover gradient (light blue → blue → light blue) */
-.Craftys_Gallery_btn::after {
-  background: linear-gradient(90deg,
-    rgb(24, 37, 184, 1) 0%,
-    rgba(29, 145, 207, 1) 50%,
-    rgba(24, 37, 184, 1) 100%);
-  opacity: 0;
-}
-
-.Craftys_Gallery_btn:hover::after { opacity: 1; }
-.Craftys_Gallery_btn:hover::before { opacity: 0; }
-
-/* optional shadow on hover */
-.Craftys_Gallery_btn:hover {
-  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),
-              0 17px 50px 0 rgba(0,0,0,0.19);
-}
-/*-------------------------- Links List Above /LLA/--------------------------*/
-
-
-.Lower_Credits_Bar {
-  background: linear-gradient(180deg, rgba(31, 0, 84, 1) 0%, rgba(124, 31, 163, 1) 30%, rgba(194, 86, 252, 1) 72%, rgba(113, 38, 212, 1) 100%);
-  width: 100%;
-  box-sizing: border-box;
-  box-shadow: 0 0 10px rgba(0,0,0,0.5);
-  text-align: center;
-  padding: 0;
-  margin: 0;
-  border-top-left-radius: 50px;
-  border-top-right-radius: 50px;
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
 }
