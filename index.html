@@ -1,67 +1,42 @@
-<html>
-<Head>
-    <title>Crafty’s Lab</title>
-  <link rel="icon" type="image/x-icon" href="CLab_Imges/CLab_Logo.png">
-    <link rel="stylesheet" href="style.css">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" type="image/x-icon" href="logo.jpeg">
+    <meta charset="UTF-8">
+    <title>Crafty Productions</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </Head>
-    <Body>
-        <h1 class="title">Crafty’s Lab</h1>
-        <h2 class="h2_projectstxt">Here i will be posting all my projects</h2>
-        <h1 class="Category_Discord_Bots">--------------------------------------------------Discord Bots--------------------------------------------------</h1>
-        <div class="Discord_Bot_Arnost_invite_link_div">
-        <button class="Discord_Bot_Arnost_invite_link" onclick="window.location.href='https://discord.com/oauth2/authorize?client_id=1405925110191489104&permissions=8&integration_type=0&scope=bot+applications.commands'">Arnošt Invite</button>
-        <h3 class="DBAILD">Bot for discord, Catch creatures with typing /Catch, for information about commands type command /help or /helpadmin (ISN'T COMPLETED YET, THAT WHY HE IS CURRENTLY OFFLINE)</h3>
-        </div>
-        <h1 class="Category_Discord_Servers">------------------------------------------------Discord Servers------------------------------------------------</h1>
-        <div class="Discord_Debatni_Denik_Server_invite_link_div">
-        <button class="Discord_Debatni_Denik_Server_invite_link" onclick="window.location.href='https://discord.gg/kTTwB23Yuk'">Debatní Deník Server Invite</button>
-        <h3 class="DDDSILD">CZ/SK Discussion server about everything, also English and Global Channels are here 
-        <br> ↓ Rules Here ↓</h3>
-        <div class="arrow-toggle" id="dd-arrow" onclick="toggleRules()">
-        <span class="arrow-icon" id="arrow-icon">&#9660;</span>
-        </div>
-        <div class="server-rules" id="dd-rules">
-        <div class="rules-content">
-        <h3>📜・PRAVIDLA SERVERU</h3>
-<br>────────────────────────────
-<br>🎉 Vítej na našem serveru! 🌟
-<br>Před vstupem si prosím přečti pravidla, abychom tu všichni měli příjemné prostředí. 🤝
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
+
+<canvas id="bg"></canvas>
+
+<div class="overlay"></div>
+
+<header class="hero">
+    <img src="Crafty_production.png" alt="Crafty Productions Logo" class="logo">    <p>> Starting Indie Developer <</p>
+</header>
+<section class="menu">
+    <button> <span>Projects</span></button>
+    <button> <span>Social</span></button>
+    <button> <span>About Me</span></button>
+</section>
+<div class="info-panel" id="infoPanel"></div>
+<section class="news">
+    <h2 class="news-title">----------News----------</h2>
+
+    <div class="news-item">Full Page Remake<br>Crafty’s Lab --> Crafty Productions <br>-14. January 2026</div>
+    <div class="news-item">Created Instagram Account <br>-14. January 2026</div>
+    <div class="news-item">Oppidum Main Menu Showcase (WORK IN PROGRESS) <br><button onclick="window.location.href='https://www.youtube.com/watch?v=4bJGrTzH84E'" class="Subbutton"><span>Youtube</span></button><br>-27. December 2025</div>
+    <div class="news-item">Created Tiktok, And Youtube Account <br>-27. December 2025</div>
+    <div class="news-item">Oppidum Development Start <br>-13. December 2025</div>
+    <div class="news-item">Debatní Deník Discord Server <br><button onclick="window.location.href='https://discord.gg/kTTwB23Yuk'" class="Subbutton"><span>Invite Link</span></button><br>-14. August 2025</div>
+    <div class="news-item">Page Created <br>-17. August 2025</div>
+</section>
+<br><br>
+<h1 class="ndhy">Nothing down here yet :P</h1>
 <br>
-<br>────────────────────────────
-<br>🔞 1. Žádné dětské porno! 🚫
-<br>────────────────────────────
-<br>💬 2. Žádný spam na serveru!
-<br>────────────────────────────
-<br>🛑 3. Nežebrej o moderátora ani větší práva!
-<br>────────────────────────────
-<br>📢 4. Žádná reklama na jiné servery (pouze po domluvě s MAJTELI )
-<br>────────────────────────────
-<br>🌐 5. Žádná reklama na weby a sociální sítě (také jen po domluvě s MAJTELI )
-<br>────────────────────────────
-<br>🎫 6. Nedělat tickety bez důvodu
-<br>────────────────────────────
-                </ol>
-            </div>
-        </div>
-                         </div>
-                                 <h1 class="Category_Other_Websites">------------------------------------------------Other Websites------------------------------------------------</h1>
-        <div class="Craftys_Gallery_btn_div">
-        <button class="Craftys_Gallery_btn" onclick="window.location.href='Gallery/Index.html'">Crafty’s Gallery</button>
-        <h3 class="DDDSILD">My screenshots, Photos, 3D Model Renders etc.</h3> 
-                       <h1 class="nty">more will be added later..</h1>
-        <div class="Lower_Credits_Bar">
-         <div class="Social">
-        <h1>Social</h1>
-    <Button class="Youtube" onclick="window.location.href='https://youtube.com/@craftyz__?si=gosihPRrETucF7Ar'">Youtube</Button>
-    <Button class="Discord" onclick="window.location.href='https://discord.gg/GMY7J5gp3F '">Discord</Button>
-    <Button class="Tiktok" onclick="window.location.href='https://www.tiktok.com/@crafty_official1'">Tiktok</Button>
-    <Button class="Twitch" onclick="window.location.href='https://www.twitch.tv/craftyofficial1'">Twitch </button>
-    </div>
-    <h3 class="credits">created: 17. August 2025 
-        <br>
-        Made by Crafty Official</h3> 
-        </div>
-        <script src="script.js"></script>
-        </Body>
-    </html>
+<script src="script.js"></script>
+</body>
+</html>
