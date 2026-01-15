@@ -289,3 +289,12 @@ button:hover::before {
         transform: scale(0.7);
     }
 }
+html, body {
+    width: 100%;
+    overflow-x: hidden;
+}
+
+* {
+    box-sizing: border-box;
+    max-width: 100%;
+}
