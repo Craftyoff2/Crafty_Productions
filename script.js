@@ -108,8 +108,9 @@ let typingTimeout;
 const infoContent = {
     Projects: `
         <strong>Projects</strong><br>
-        1) Oppidum <br> <div class="development"> in development... </div><br>
-        1) DEVCore <br> <div class="development"> in development... </div>
+        1) DEVCore <br> <div class="development"> in development... </div><br>
+        2) Oppidum <br> <div class="development"> in development... </div><br>
+        ?) The Hollow Wilds <br> <div class="development"> Final Project (currently only planned)</div>
         
     `,
     Social: `
