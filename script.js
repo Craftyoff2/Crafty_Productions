@@ -112,7 +112,7 @@ const infoContent = {
         2) Oppidum <br> <div class="development"> in development... </div><br>
         3) Kocour Karel: Reawakened <br> <div class="development"> in development... </div><br>
         ?) The Hollow Wilds <br> <div class="development"> Final Project (currently only planned)</div>
-        
+
     `,
     Social: `
         <strong>Social</strong><br>
