@@ -109,7 +109,7 @@ const infoContent = {
     Projects: `
         <strong>Projects</strong><br>
         1) DEVCore <br> <div class="development"> in development... </div><br>
-        2) Oppidum <br> <div class="development"> in development... </div><br>
+        2) Oppidum: Strážce Kopce <br> <div class="development"> in development... </div><br>
         3) Kocour Karel: Reawakened <br> <div class="development"> in development... </div><br>
         ?) The Hollow Wilds <br> <div class="development"> Final Project (currently only planned)</div>
 
@@ -121,6 +121,7 @@ const infoContent = {
         <button onclick="window.location.href='https://www.youtube.com/@Crafty_Productionss'" class="Subbutton"><span>Youtube</span></button>
         <button onclick="window.location.href='https://www.tiktok.com/@crafty_production?_r=1&_t=ZN-936Cg4oUNAU'" class="Subbutton"><span>Tiktok</span></button>
         <button onclick="window.location.href='https://www.instagram.com/crafty.productions?igsh=MXhhcTdsYjNhamh1aA=='" class="Subbutton"><span>Instagram</span></button>
+        <button onclick="window.location.href='https://store.steampowered.com/curator/45934286/'" class="Subbutton"><span>Steam</span></button>
         <br>
         ------Personal Accounts------
         <button onclick="window.location.href='https://www.youtube.com/@Craftyz__'" class="Subbutton"><span>Youtube</span></button>
