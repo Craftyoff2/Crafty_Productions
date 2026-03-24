@@ -1,0 +1,15 @@
+body {
+    background-color: black;
+}
+h1 {
+    color: white;
+}
+.title {
+        text-align: center;
+        font-size: 60px;
+}
+.story {
+text-align: center;
+        font-size: 20px;
+        padding: 50px;
+}
