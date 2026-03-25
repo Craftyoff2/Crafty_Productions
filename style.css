@@ -260,6 +260,86 @@ button:hover::before {
     box-shadow: 0 0 25px rgba(255, 79, 216, 0.25);
 }
 
+.footer {
+    width: 100%;
+    border-top: 2px solid rgba(180, 120, 255, 0.6); /* faint mystical line */
+    padding: 20px 0;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.85); /* semi-transparent black */
+    position: relative;
+    z-index: 2; /* above fog */
+    color: #ccc;
+    font-size: 14px;
+    font-family: serif;
+}
+
+/* all links in footer, including Crafty Productions */
+.footer a {
+    color: #d4eb06; /* keep yellow-green color */
+    text-decoration: none;
+    margin: 0 6px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+/* hover color */
+.footer a:hover {
+    color: #ff00ff;
+}
+
+/* glowing underline animation */
+.footer a::after {
+    content: '';
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    background: #ff00ff;
+    left: 0;
+    bottom: -2px;
+    transition: 0.3s;
+}
+
+.footer a:hover::after {
+    width: 100%;
+}
+
+.footer a {
+    color: #ff00b3; /* yellow-green for socials */
+    text-decoration: none;
+    margin: 0 6px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+/* hover effect for all links */
+.footer a:hover {
+    color: #7c2bff;
+}
+
+/* underline animation for all links */
+.footer a::after {
+    content: '';
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    background: #7c2bff;
+    left: 0;
+    bottom: -2px;
+    transition: 0.3s;
+}
+.footer a:hover::after {
+    width: 100%;
+}
+
+/* special style ONLY for Crafty Productions main page link */
+.footer a.main-page {
+    color: white; /* white instead of yellow-green */
+}
+
+.footer a.main-page:hover {
+    color: #ff00ff; /* still glow on hover */
+}
+
 /* ===== Mobile Fixes ===== */
 @media (max-width: 768px) {
     .news-item:nth-child(odd),
