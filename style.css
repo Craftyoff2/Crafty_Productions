@@ -378,3 +378,86 @@ html, body {
     box-sizing: border-box;
     max-width: 100%;
 }
+
+:root {
+  --dark-color: gray;
+  --subtle-color: rgb(208, 213, 213);
+  --main-color: rgb(249, 255, 255);
+}
+
+.container.storybook {
+  margin: 5px auto 0 auto;   /* top margin to separate from text */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 90px;      /* smaller container width */
+  height: 120px;    /* smaller container height */
+  perspective: 500px;
+  perspective-origin: 50% 50%;
+}
+
+.book {
+  position: relative;
+  width: 100%;      /* fit container */
+  height: 100%;     /* fit container */
+  transform-style: preserve-3d;
+}
+
+.shadow {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  box-shadow: 0 6px 12px 4px var(--dark-color);  /* smaller shadow */
+  transform: rotateY(-10deg);
+}
+
+.book>div {
+  position: absolute;
+  top: 0;
+  left:0;
+  width: 100%;
+  height: 100%;
+  transform-origin: left;
+  transition: transform 1.5s;
+}
+
+.cover {
+  transform: scaleY(1.05) rotateY(-10deg);
+  border: 1px solid var(--dark-color);
+}
+
+.cover-end {
+  transform: translateX(5px) rotateY(-10deg);  /* smaller offset */
+  border: 1px solid var(--dark-color);
+}
+
+.back {
+  width: 6px;         /* smaller thickness */
+  background-color: var(--subtle-color);
+}
+
+.page {
+  background: linear-gradient(to right, var(--subtle-color), 20%, var(--main-color));
+  border: 1px solid var(--subtle-color);
+}
+
+.page.first { transform: translateX(1px) rotateY(-10deg); }
+.page.second { transform: translateX(2px) rotateY(-10deg); }
+.page.third { transform: translateX(3px) rotateY(-10deg); }
+.page.last { transform: translateX(4px) rotateY(-10deg); display: flex; align-items: center; }
+
+.btn-tale {
+  background-color: transparent;
+  border: none;
+  font-size: 0.9rem;           /* smaller font to fit */
+  font-family: "Dancing Script", cursive;
+  transition: opacity 0.5s;
+}
+
+.btn-tale:hover { opacity: 30%; }
+
+/* Hover page animations */
+.book:hover .cover { transform: rotateY(-150deg); }
+.book:hover .page.first { transform: translateX(1px) rotateY(-150deg); }
+.book:hover .page.second { transform: translateX(2px) rotateY(-130deg); }
+.book:hover .page.third { transform: translateX(3px) rotateY(-110deg); }
