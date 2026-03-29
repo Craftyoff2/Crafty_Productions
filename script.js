@@ -1,14 +1,3 @@
-            function toggleRules() {
-                const rules = document.getElementById('dd-rules');
-                const arrow = document.getElementById('arrow-icon');
-                if (rules.classList.contains('open')) {
-                    rules.classList.remove('open');
-                    arrow.style.transform = 'rotate(0deg)';
-                } else {
-                    rules.classList.add('open');
-                    arrow.style.transform = 'rotate(180deg)';
-                }
-            }
 // ==================== CANVAS SETUP ====================
 const canvas = document.getElementById("bg");
 const ctx = canvas.getContext("2d");
@@ -108,11 +97,9 @@ let typingTimeout;
 const infoContent = {
     Projects: `
         <strong>Projects</strong><br>
-        1) DEVCore <br> <div class="development"> in development... </div><br>
-        2) Oppidum: Strážce Kopce <br> <div class="development"> in development... </div><br>
-        3) Kocour Karel: Reawakened <br> <div class="development"> in development... </div><br>
-        ?) The Hollow Wilds <br> <div class="development"> Final Project (currently only planned)</div>
-
+        1) Oppidum <br> <div class="development"> in development... </div><br>
+        1) DEVCore <br> <div class="development"> in development... </div>
+        
     `,
     Social: `
         <strong>Social</strong><br>
@@ -121,7 +108,6 @@ const infoContent = {
         <button onclick="window.location.href='https://www.youtube.com/@Crafty_Productionss'" class="Subbutton"><span>Youtube</span></button>
         <button onclick="window.location.href='https://www.tiktok.com/@crafty_production?_r=1&_t=ZN-936Cg4oUNAU'" class="Subbutton"><span>Tiktok</span></button>
         <button onclick="window.location.href='https://www.instagram.com/crafty.productions?igsh=MXhhcTdsYjNhamh1aA=='" class="Subbutton"><span>Instagram</span></button>
-        <button onclick="window.location.href='https://store.steampowered.com/curator/45934286/'" class="Subbutton"><span>Steam</span></button>
         <br>
         ------Personal Accounts------
         <button onclick="window.location.href='https://www.youtube.com/@Craftyz__'" class="Subbutton"><span>Youtube</span></button>
@@ -225,4 +211,238 @@ document.addEventListener("click", e => {
         infoPanel.classList.remove("show");
         activeKey = null;
     }
+});
+let lastScroll = 0;
+const navbar = document.getElementById("navbar");
+
+window.addEventListener("scroll", () => {
+    let currentScroll = window.scrollY;
+
+    if (currentScroll > 100) {
+        navbar.classList.add("show");
+    } else {
+        navbar.classList.remove("show");
+    }
+
+    lastScroll = currentScroll;
+});
+function showPage(pageId) {
+    const pages = document.querySelectorAll('.page-section');
+    pages.forEach(p => {
+        if (p.id === pageId) {
+            // Show new page
+            p.style.display = 'block';
+            requestAnimationFrame(() => p.classList.add('show'));
+        } else {
+            // Hide other pages
+            p.classList.remove('show');
+            setTimeout(() => p.style.display = 'none', 600); // match CSS transition
+        }
+    });
+}
+let currentPage = 'home';
+let isTransitioning = false;
+
+function showPage(pageId) {
+    if (isTransitioning || pageId === currentPage) return;
+
+    const currentSection = document.getElementById(currentPage);
+    const newSection = document.getElementById(pageId);
+    isTransitioning = true;
+
+    // Fade out current page
+    currentSection.style.opacity = 0;
+
+    setTimeout(() => {
+        currentSection.classList.remove('show'); // hide after fade out
+        newSection.classList.add('show');        // show new page
+        // Fade in new page
+        setTimeout(() => {
+            newSection.style.opacity = 1;
+            currentPage = pageId;
+            isTransitioning = false;
+        }, 50);
+    }, 400); // matches CSS transition duration
+}
+// ==================== CARD CANVAS ====================
+window.addEventListener("load", () => {
+    const cardCanvas = document.getElementById("card-bg");
+    if (!cardCanvas) return; // exit if no card
+
+    const cardCtx = cardCanvas.getContext("2d");
+    const cardContainer = document.querySelector(".card__content");
+
+    let cw, ch;
+    let cardParticles = [];
+    const chars = "01{}[]<>/;=+-*";
+
+    function resizeCard() {
+        cw = cardCanvas.width = cardContainer.clientWidth;
+        ch = cardCanvas.height = cardContainer.clientHeight;
+        initCardParticles();
+    }
+
+    window.addEventListener("resize", resizeCard);
+    resizeCard();
+
+    function spawnCardParticle() {
+        return {
+            x: Math.random() * cw,
+            y: Math.random() * ch,
+            speed: Math.random() * 1 + 0.6,
+            size: Math.random() * 14 + 12,
+            char: chars[Math.floor(Math.random() * chars.length)],
+            hue: Math.random() > 0.5 ? 200 : 220
+        };
+    }
+
+    function initCardParticles() {
+        cardParticles = [];
+        for (let i = 0; i < 80; i++) cardParticles.push(spawnCardParticle());
+    }
+
+    function drawCard() {
+        cardCtx.clearRect(0, 0, cw, ch);
+
+        cardParticles.forEach(p => {
+            cardCtx.strokeStyle = `hsla(${p.hue},100%,70%,0.15)`;
+            cardCtx.lineWidth = 2;
+            cardCtx.beginPath();
+            cardCtx.moveTo(p.x, p.y - p.size * 2);
+            cardCtx.lineTo(p.x, p.y);
+            cardCtx.stroke();
+
+            cardCtx.fillStyle = `hsla(${p.hue},100%,75%,1)`;
+            cardCtx.font = `${p.size}px monospace`;
+            cardCtx.fillText(p.char, p.x, p.y);
+
+            p.y += p.speed;
+            if (p.y > ch) Object.assign(p, spawnCardParticle(), { y: -20 });
+        });
+
+        requestAnimationFrame(drawCard);
+    }
+    drawCard();
+});
+document.querySelectorAll(".card").forEach(card => {
+    const cardCanvas = card.querySelector("canvas");
+    if (!cardCanvas) return;
+
+    let ctx = null;
+    let particles = [];
+    let cw = 0, ch = 0;
+    let animating = false;
+    const chars = "01{}[]<>/;=+-*";
+
+    function spawnParticle() {
+        return {
+            x: Math.random() * cw,
+            y: Math.random() * ch,
+            speed: Math.random() * 1 + 0.6,
+            size: Math.random() * 14 + 12,
+            char: chars[Math.floor(Math.random() * chars.length)],
+            hue: Math.random() > 0.5 ? 200 : 220
+        };
+    }
+
+    function initParticles() {
+        particles = [];
+        for (let i = 0; i < 80; i++) particles.push(spawnParticle());
+    }
+
+    function resizeCanvas() {
+        cw = cardCanvas.width = card.clientWidth;
+        ch = cardCanvas.height = card.clientHeight;
+        initParticles();
+    }
+
+    function draw() {
+        if (!ctx) return;
+        ctx.clearRect(0, 0, cw, ch);
+        particles.forEach(p => {
+            ctx.strokeStyle = `hsla(${p.hue},100%,70%,0.15)`;
+            ctx.lineWidth = 2;
+            ctx.beginPath();
+            ctx.moveTo(p.x, p.y - p.size * 2);
+            ctx.lineTo(p.x, p.y);
+            ctx.stroke();
+
+            ctx.fillStyle = `hsla(${p.hue},100%,75%,1)`;
+            ctx.font = `${p.size}px monospace`;
+            ctx.fillText(p.char, p.x, p.y);
+
+            p.y += p.speed;
+            if (p.y > ch) Object.assign(p, spawnParticle(), { y: -20 });
+        });
+
+        if (animating) requestAnimationFrame(draw);
+    }
+
+    // Start animation on hover
+    card.addEventListener("mouseenter", () => {
+        ctx = cardCanvas.getContext("2d");
+        resizeCanvas();
+        animating = true;
+        draw();
+    });
+
+    // Stop animation when hover ends
+    card.addEventListener("mouseleave", () => {
+        animating = false;
+    });
+
+    // Resize canvas if window changes
+    window.addEventListener("resize", () => {
+        if (animating) resizeCanvas();
+    });
+});
+fetch('https://raw.githubusercontent.com/Craftyoff2/Craftyoff2/main/README.md')
+  .then(res => res.text())
+  .then(md => {
+    document.getElementById('github-readme').innerHTML = marked.parse(md);
+  })
+  .catch(err => {
+    console.error("Failed to load README:", err);
+  });
+const searchInput = document.getElementById("searchInput");
+const products = document.querySelectorAll(".product");
+const checkboxes = document.querySelectorAll(".filters input[type='checkbox']");
+
+// Trigger filtering
+searchInput.addEventListener("input", filterProducts);
+checkboxes.forEach(cb => cb.addEventListener("change", filterProducts));
+
+function filterProducts() {
+  const searchValue = searchInput.value.toLowerCase();
+
+  // Get selected tags
+  const selectedTags = Array.from(checkboxes)
+    .filter(cb => cb.checked)
+    .map(cb => cb.value);
+
+  products.forEach(product => {
+    const name = product.dataset.name.toLowerCase();
+    const categories = product.dataset.category.split(",");
+
+    const matchesSearch = name.includes(searchValue);
+
+    const matchesCategory =
+      selectedTags.length === 0 || // if nothing selected → show all
+      selectedTags.some(tag => categories.includes(tag));
+
+    product.style.display = (matchesSearch && matchesCategory)
+      ? "block"
+      : "none";
+  });
+}
+const filterBtn = document.getElementById("filterBtn");
+const filterPanel = document.getElementById("filterPanel");
+
+filterBtn.addEventListener("click", () => {
+  filterPanel.classList.toggle("hidden");
+});
+document.addEventListener("click", (e) => {
+  if (!filterPanel.contains(e.target) && !filterBtn.contains(e.target)) {
+    filterPanel.classList.add("hidden");
+  }
 });
