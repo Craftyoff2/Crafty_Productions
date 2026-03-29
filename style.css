@@ -67,7 +67,7 @@ p {
     flex-wrap: wrap;
 }
 
-.menu button {
+.menu .button1 {
     padding: clamp(12px, 2vw, 24px) clamp(24px, 4vw, 48px);
     font-size: clamp(1rem, 2vw, 1.5rem);
     background: linear-gradient(135deg, #ff4fd8, #8f3cff);
@@ -83,16 +83,16 @@ p {
     max-width: 90vw; /* prevent overflow */
 }
 
-.menu button.show {
+.menu .button1.show {
     opacity: 1;
     transform: translateY(0) scale(1);
 }
 
-.menu button:hover {
+.menu .button1:hover {
     transform: translateY(-6px) scale(1.05);
 }
 
-button {
+.button1 {
     position: relative;
     display: inline-block;
     padding: 0.9rem 2rem;
@@ -110,18 +110,18 @@ button {
     max-width: 90vw; /* prevent overflow on mobile */
 }
 
-button span {
+.button1 span {
     position: relative;
     z-index: 2;
     color: white;
     transition: color 0.4s;
 }
 
-button:hover span {
+.button1:hover span {
     color: black;
 }
 
-button::before {
+.button1::before {
     content: "";
     position: absolute;
     top: 0;
@@ -304,19 +304,17 @@ button:hover::before {
 }
 
 .footer a {
-    color: #ff00b3; /* yellow-green for socials */
+    color: #ff00b3;
     text-decoration: none;
     margin: 0 6px;
     transition: all 0.3s ease;
     position: relative;
 }
 
-/* hover effect for all links */
 .footer a:hover {
     color: #7c2bff;
 }
 
-/* underline animation for all links */
 .footer a::after {
     content: '';
     position: absolute;
@@ -327,17 +325,17 @@ button:hover::before {
     bottom: -2px;
     transition: 0.3s;
 }
+
 .footer a:hover::after {
     width: 100%;
 }
 
-/* special style ONLY for Crafty Productions main page link */
 .footer a.main-page {
-    color: white; /* white instead of yellow-green */
+    color: white;
 }
 
 .footer a.main-page:hover {
-    color: #ff00ff; /* still glow on hover */
+    color: #ff00ff;
 }
 
 /* ===== Mobile Fixes ===== */
@@ -461,3 +459,1013 @@ html, body {
 .book:hover .page.first { transform: translateX(1px) rotateY(-150deg); }
 .book:hover .page.second { transform: translateX(2px) rotateY(-130deg); }
 .book:hover .page.third { transform: translateX(3px) rotateY(-110deg); }
+
+/* NAVBAR BASE */
+#navbar {
+    position: fixed;
+    top: -80px;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    transition: top 0.4s ease;
+}
+
+/* SHOW */
+#navbar.show {
+    top: 0;
+}
+
+/* CENTER CONTENT */
+.nav-container {
+    display: flex;
+    justify-content: center; /* CENTERED */
+    align-items: center;
+    height: 100%;
+}
+
+/* LINKS */
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 40px;
+    padding: 0;
+}
+
+/* NAV LINKS BASE */
+.nav-links li a {
+    position: relative;
+    text-decoration: none;
+    color: white;
+    font-size: 17px;
+    padding: 5px 0;
+    transition: 0.3s ease;
+}
+
+/* ✨ HOVER COLOR + GLOW */
+.nav-links li a:hover {
+    color: #dd00ff;
+    text-shadow: 0 0 8px rgba(221, 0, 255, 0.8);
+}
+
+/* 🔥 STATIC BAR WITH MOVING GRADIENT */
+.nav-line {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+
+    background: linear-gradient(90deg,
+        rgba(14, 14, 130, 1) 0%,
+        rgba(121, 0, 191, 1) 25%,
+        rgba(221, 0, 255, 1) 50%,
+        rgba(121, 0, 191, 1) 75%,
+        rgba(14, 14, 130, 1) 100%
+    );
+
+    background-size: 200% 100%; /* makes loop smooth */
+    animation: snakeFlow 4s linear infinite;
+}
+
+/* Smooth flowing animation */
+@keyframes snakeFlow {
+    0% {
+        background-position: 0% 50%;
+    }
+    100% {
+        background-position: 200% 50%;
+    }
+}
+.nav-links li a {
+    position: relative;
+    text-decoration: none;
+    color: white;
+    font-size: 17px;
+    padding: 5px 0;
+    transition: 0.3s ease;
+}
+
+/* hover */
+.nav-links li a:hover {
+    color: #dd00ff;
+    text-shadow: 0 0 8px rgba(221, 0, 255, 0.8);
+    transform: translateY(-2px);
+    animation: pulseGlow 0.6s ease;
+}
+
+/* underline */
+.nav-links li a::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -6px;
+    width: 0%;
+    height: 2px;
+
+    background: linear-gradient(90deg,
+        rgb(255, 0, 242),
+        rgb(112, 7, 197)
+    );
+
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.nav-links li a:hover::after {
+    width: 100%;
+}
+.nav-links li a:hover {
+    animation: pulseGlow 0.6s ease;
+}
+
+@keyframes pulseGlow {
+    0% {
+        text-shadow: 0 0 5px rgba(221, 0, 255, 0.4);
+    }
+    50% {
+        text-shadow: 0 0 15px rgba(221, 0, 255, 1);
+    }
+    100% {
+        text-shadow: 0 0 8px rgba(221, 0, 255, 0.8);
+    }
+}
+.nav-links li a:hover {
+    animation: pulseGlow 0.6s ease;
+}
+@media (max-width: 768px) {
+    .nav-links li a {
+        font-size: 14px;   /* smaller text */
+        padding: 4px 6px;  /* tighter padding */
+    }
+
+    .nav-links {
+        gap: 12px;         /* smaller gap between links */
+        flex-wrap: wrap;    /* allows wrapping if needed */
+        justify-content: center;
+    }
+}
+/* ===== Page Sections & Transitions ===== */
+/* Page sections */
+.page-section {
+     display: none;               /* makes it flex container */
+  justify-content: center;     /* centers items horizontally */
+  gap: 20px;                   /* space between items */
+  flex-wrap: wrap;             /* wraps to next line if needed */
+  padding: 20px;               /* space from section edges */
+    opacity: 0;
+    transition: opacity 0.6s ease;
+}
+
+.page-section.show {
+    display: block;
+    opacity: 1;
+}
+
+/* From Uiverse.io by D3OXY */
+.card {
+  position: relative;
+  width: 350px;
+  aspect-ratio: 16/9;
+  background-color: #0a19f1;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  perspective: 1000px;
+  box-shadow: 0 0 0 5px #34026380;
+  transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.card svg {
+  width: 48px;
+  fill: #333;
+  transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.card__image {
+  width: 100%;
+  height: 100%;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(107, 5, 175, 0.651);
+}
+
+/* ====================== UPDATED CONTENT ====================== */
+.card__content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0.8);
+  transform: rotateX(-90deg);
+  transform-origin: bottom;
+  transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  overflow: hidden;
+  z-index: 1;
+  color: white;
+  pointer-events: none;
+  box-shadow: 0 0 0 5px #113dff80;
+}
+
+.card__content canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  border-radius: 10px;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+  pointer-events: none;
+}
+
+.card:hover .card__content {
+  transform: rotateX(0deg);
+  pointer-events: auto;
+}
+
+.card:hover .card__content canvas {
+  opacity: 1;
+}
+
+.card__title,
+.card__description,
+.card__button {
+  position: relative;
+  z-index: 2;
+  color: white;
+}
+
+/* Buttons & text style */
+.card__title {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 700;
+  color: #fff; /* visible on blue canvas */
+}
+
+.card__description {
+  margin: 10px 0;
+  font-size: 12px;
+  line-height: 1.4;
+  color: #fff;
+}
+
+.card__button {
+  padding: 15px;
+  border-radius: 8px;
+  background: #06098a;
+  border: none;
+  color: rgb(114, 137, 235);
+}
+
+.secondary {
+  background: transparent;
+  color: #72a8f0;
+  border: 1px solid #0b47c9;
+}
+.overlay_card {
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+    background: radial-gradient(circle at top,
+        rgba(0, 26, 255, 0.15),
+        rgba(0, 68, 255, 0.1),
+        rgba(0, 0, 0, 0.9)
+    );
+    z-index: -1;
+}
+.class_cards {
+    display: flex;               /* enable flexbox */
+    flex-direction: column;      /* stack child divs vertically */
+    justify-content: center;     /* center vertically */
+    align-items: center;         /* center horizontally */
+}
+#github-readme {
+    background-color: rgba(9, 0, 10, 0.8);
+    border-radius: 50px;
+    box-shadow: 0 0 0 5px #e606c8d3;
+}
+.search {
+
+    display: flex;               /* enable flexbox */
+    flex-direction: column;      /* stack child divs vertically */
+    justify-content:last baseline;     /* center vertically */
+    align-items: end; 
+}
+/* From Uiverse.io by tiagoadag1203 */ 
+.input {
+  max-width: 190px;
+  background-color: #1a1a1a;
+  border: none;
+  padding: 10px;
+  border-radius: 10px;
+  outline: none;
+  color: white;
+}
+
+.input:focus {
+  animation: rotateShadow 2s infinite linear;
+}
+
+@keyframes rotateShadow {
+  0% {
+    box-shadow: -2px -2px 0px 0px #aa00ff, 2px 2px 0px 0px #3700ff;
+  }
+  25% {
+    box-shadow: -2px 2px 0px 0px #aa00ff, 2px -2px 0px 0px #3700ff;
+  }
+  50% {
+    box-shadow: 2px 2px 0px 0px #aa00ff, -2px -2px 0px 0px #3700ff;
+  }
+  75% {
+    box-shadow: 2px -2px 0px 0px #aa00ff, -2px 2px 0px 0px #3700ff;
+  }
+  100% {
+    box-shadow: -2px -2px 0px 0px #aa00ff, 2px 2px 0px 0px #3700ff;
+  }
+}
+.filters {
+  position: fixed;
+  right: 230px;
+  background: rgb(19, 11, 19);
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(242, 0, 250, 0.2);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  outline: mediumvioletred solid 2px;
+}
+
+.hidden {
+  display: none;
+}
+/* From Uiverse.io by Esca-Byte */ 
+/* ---------- wrapper ---------- */
+.cosmic-checkbox {
+  --size: 28px;
+  --clr-idle: #8b8fa3;
+  --clr-active: #a855f7;
+  --clr-glow: #c084fc;
+  --clr-core: #e9d5ff;
+  --clr-spark: #f0abfc;
+  --duration: 0.6s;
+  display: inline-flex;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.cosmic-checkbox input {
+  display: none;
+}
+
+.checkbox-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* ---------- the box ---------- */
+.checkbox-box {
+  position: relative;
+  width: var(--size);
+  height: var(--size);
+  border: 2px solid var(--clr-idle);
+  border-radius: 8px;
+  transition:
+    border-color 0.3s,
+    background 0.3s,
+    box-shadow 0.3s,
+    transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* idle hover */
+.cosmic-checkbox:hover .checkbox-box {
+  border-color: var(--clr-glow);
+  box-shadow: 0 0 8px rgba(168, 85, 247, 0.25);
+}
+
+/* Background Element */
+.checkbox-bg {
+  position: absolute;
+  inset: 0;
+  border-radius: 6px;
+  background: linear-gradient(135deg, #7c3aed, #a855f7);
+  opacity: 0;
+  transform: scale(0.5);
+  transition:
+    opacity 0.4s ease,
+    transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  z-index: 1;
+}
+
+.cosmic-checkbox input:checked ~ .checkbox-container .checkbox-bg {
+  opacity: 1;
+  transform: scale(1);
+  box-shadow:
+    0 0 12px rgba(168, 85, 247, 0.5),
+    0 0 30px rgba(168, 85, 247, 0.2),
+    inset 0 0 8px rgba(233, 213, 255, 0.15);
+}
+
+/* ---------- checkmark ---------- */
+.checkmark {
+  width: 16px;
+  height: 16px;
+  color: #fff;
+  opacity: 0;
+  transform: scale(0) rotate(-20deg);
+  transition:
+    opacity 0.25s ease,
+    transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  position: relative;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.checkmark path {
+  stroke-dasharray: 28;
+  stroke-dashoffset: 28;
+  transition: stroke-dashoffset 0.5s cubic-bezier(0.65, 0, 0.35, 1) 0.15s;
+}
+
+/* ---------- label text ---------- */
+.label-text {
+  font-family:
+    "Segoe UI",
+    system-ui,
+    -apple-system,
+    sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--clr-idle);
+  letter-spacing: 0.3px;
+  transition: color 0.35s;
+  user-select: none;
+}
+
+/* ======================
+   PARTICLES
+   ====================== */
+.particle {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--clr-spark);
+  opacity: 0;
+  pointer-events: none;
+  top: 50%;
+  left: 50%;
+  z-index: 3;
+}
+
+/* ======================
+   SHOCKWAVE RINGS
+   ====================== */
+.ring {
+  position: absolute;
+  inset: -8px;
+  border-radius: 50%;
+  border: 2px solid var(--clr-glow);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* ======================
+   SPARK LINES
+   ====================== */
+.spark {
+  position: absolute;
+  width: 2px;
+  height: 10px;
+  background: linear-gradient(to top, var(--clr-spark), transparent);
+  opacity: 0;
+  top: 50%;
+  left: 50%;
+  transform-origin: center center;
+  pointer-events: none;
+  border-radius: 2px;
+  z-index: 3;
+}
+
+/* Position sparks in a radial pattern */
+.s1 {
+  transform: rotate(0deg) translateY(-2px);
+}
+
+.s2 {
+  transform: rotate(45deg) translateY(-2px);
+}
+
+.s3 {
+  transform: rotate(90deg) translateY(-2px);
+}
+
+.s4 {
+  transform: rotate(135deg) translateY(-2px);
+}
+
+.s5 {
+  transform: rotate(180deg) translateY(-2px);
+}
+
+.s6 {
+  transform: rotate(225deg) translateY(-2px);
+}
+
+.s7 {
+  transform: rotate(270deg) translateY(-2px);
+}
+
+.s8 {
+  transform: rotate(315deg) translateY(-2px);
+}
+
+/* ==========================================
+   ✅ CHECKED STATE — the supernova ignites
+   ========================================== */
+.cosmic-checkbox input:checked ~ .checkbox-container .checkbox-box {
+  border-color: var(--clr-active);
+  /* Background moves to .checkbox-bg */
+  transform: scale(1);
+  animation: box-pulse 0.5s ease;
+}
+
+@keyframes box-pulse {
+  0% {
+    transform: scale(1);
+  }
+
+  30% {
+    transform: scale(0.85);
+  }
+
+  60% {
+    transform: scale(1.15);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* checkmark draws in */
+.cosmic-checkbox input:checked ~ .checkbox-container .checkmark {
+  opacity: 1;
+  transform: scale(1) rotate(0deg);
+}
+
+.cosmic-checkbox input:checked ~ .checkbox-container .checkmark path {
+  stroke-dashoffset: 0;
+}
+
+/* label lights up */
+.cosmic-checkbox input:checked ~ .checkbox-container .label-text {
+  color: var(--clr-core);
+}
+
+/* ---- Particle explosion ---- */
+.cosmic-checkbox input:checked ~ .checkbox-container .p1 {
+  animation: particle-fly 0.65s ease-out forwards;
+  --angle: -45deg;
+  --dist: 22px;
+  --clr: #f0abfc;
+}
+
+.cosmic-checkbox input:checked ~ .checkbox-container .p2 {
+  animation: particle-fly 0.6s 0.05s ease-out forwards;
+  --angle: -90deg;
+  --dist: 26px;
+  --clr: #c084fc;
+}
+
+.cosmic-checkbox input:checked ~ .checkbox-container .p3 {
+  animation: particle-fly 0.55s 0.08s ease-out forwards;
+  --angle: 0deg;
+  --dist: 20px;
+  --clr: #e879f9;
+}
+
+.cosmic-checkbox input:checked ~ .checkbox-container .p4 {
+  animation: particle-fly 0.7s 0.03s ease-out forwards;
+  --angle: 45deg;
+  --dist: 24px;
+  --clr: #d946ef;
+}
+
+.cosmic-checkbox input:checked ~ .checkbox-container .p5 {
+  animation: particle-fly 0.5s 0.1s ease-out forwards;
+  --angle: 135deg;
+  --dist: 18px;
+  --clr: #a78bfa;
+}
+
+.cosmic-checkbox input:checked ~ .checkbox-container .p6 {
+  animation: particle-fly 0.65s 0.06s ease-out forwards;
+  --angle: -135deg;
+  --dist: 23px;
+  --clr: #818cf8;
+}
+
+@keyframes particle-fly {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, -50%) rotate(var(--angle)) translateY(0) scale(1);
+    background: var(--clr);
+  }
+
+  60% {
+    opacity: 1;
+    transform: translate(-50%, -50%) rotate(var(--angle))
+      translateY(calc(var(--dist) * -1)) scale(1.1);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) rotate(var(--angle))
+      translateY(calc(var(--dist) * -1.4)) scale(0);
+  }
+}
+
+/* ---- Shockwave rings ---- */
+.cosmic-checkbox input:checked ~ .checkbox-container .ring-1 {
+  animation: shockwave 0.7s ease-out forwards;
+}
+
+.cosmic-checkbox input:checked ~ .checkbox-container .ring-2 {
+  animation: shockwave 0.7s 0.12s ease-out forwards;
+}
+
+.cosmic-checkbox input:checked ~ .checkbox-container .ring-3 {
+  animation: shockwave 0.7s 0.24s ease-out forwards;
+}
+
+@keyframes shockwave {
+  0% {
+    opacity: 0.7;
+    transform: scale(0.5);
+    border-color: var(--clr-glow);
+  }
+
+  50% {
+    opacity: 0.4;
+    border-color: var(--clr-spark);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(2.2);
+    border-color: transparent;
+  }
+}
+
+/* ---- Spark lines burst ---- */
+.cosmic-checkbox input:checked ~ .checkbox-container .s1 {
+  animation: spark-burst 0.5s 0.05s ease-out forwards;
+  --rot: 0deg;
+}
+
+.cosmic-checkbox input:checked ~ .checkbox-container .s2 {
+  animation: spark-burst 0.45s 0.08s ease-out forwards;
+  --rot: 45deg;
+}
+
+.cosmic-checkbox input:checked ~ .checkbox-container .s3 {
+  animation: spark-burst 0.5s 0.03s ease-out forwards;
+  --rot: 90deg;
+}
+
+.cosmic-checkbox input:checked ~ .checkbox-container .s4 {
+  animation: spark-burst 0.55s 0.1s ease-out forwards;
+  --rot: 135deg;
+}
+
+.cosmic-checkbox input:checked ~ .checkbox-container .s5 {
+  animation: spark-burst 0.5s 0.06s ease-out forwards;
+  --rot: 180deg;
+}
+
+.cosmic-checkbox input:checked ~ .checkbox-container .s6 {
+  animation: spark-burst 0.45s 0.09s ease-out forwards;
+  --rot: 225deg;
+}
+
+.cosmic-checkbox input:checked ~ .checkbox-container .s7 {
+  animation: spark-burst 0.5s 0.04s ease-out forwards;
+  --rot: 270deg;
+}
+
+.cosmic-checkbox input:checked ~ .checkbox-container .s8 {
+  animation: spark-burst 0.55s 0.07s ease-out forwards;
+  --rot: 315deg;
+}
+
+@keyframes spark-burst {
+  0% {
+    opacity: 1;
+    transform: rotate(var(--rot)) translateY(-4px) scaleY(0.5);
+  }
+
+  50% {
+    opacity: 0.9;
+    transform: rotate(var(--rot)) translateY(-20px) scaleY(1.2);
+    background: linear-gradient(to top, var(--clr-active), transparent);
+  }
+
+  100% {
+    opacity: 0;
+    transform: rotate(var(--rot)) translateY(-30px) scaleY(0.3);
+  }
+}
+
+/* ======================
+   IDLE BREATHING GLOW
+   A subtle ambient pulse
+   when unchecked
+   ====================== */
+.checkbox-box::before {
+  content: "";
+  position: absolute;
+  inset: -3px;
+  border-radius: 10px;
+  background: radial-gradient(
+    circle,
+    rgba(168, 85, 247, 0.12),
+    transparent 70%
+  );
+  opacity: 0;
+  animation: idle-breathe 3s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes idle-breathe {
+  0%,
+  100% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.15);
+  }
+}
+
+/* after check, the glow becomes steady */
+.cosmic-checkbox input:checked ~ .checkbox-container .checkbox-box::before {
+  animation: none;
+  opacity: 0.6;
+  transform: scale(1.2);
+  background: radial-gradient(
+    circle,
+    rgba(168, 85, 247, 0.25),
+    transparent 70%
+  );
+  transition:
+    opacity 0.5s,
+    transform 0.5s;
+}
+
+/* ======================
+   AFTER-GLOW — persistent
+   shimmer on checked state
+   ====================== */
+.checkbox-box::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 8px;
+  opacity: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.25) 0%,
+    transparent 50%,
+    rgba(255, 255, 255, 0.1) 100%
+  );
+  pointer-events: none;
+  transition: opacity 0.4s 0.2s;
+}
+
+.cosmic-checkbox input:checked ~ .checkbox-container .checkbox-box::after {
+  opacity: 1;
+}
+
+/* ======================
+   UNCHECKED TRANSITION
+   smooth return
+   ====================== */
+.cosmic-checkbox input:not(:checked) ~ .checkbox-container .checkbox-box {
+  background: transparent;
+  box-shadow: none;
+}
+
+.cosmic-checkbox input:not(:checked) ~ .checkbox-container .checkmark {
+  opacity: 0;
+  transform: scale(0) rotate(-20deg);
+}
+
+.cosmic-checkbox input:not(:checked) ~ .checkbox-container .checkmark path {
+  stroke-dashoffset: 28;
+}
+
+/* ======================
+   FOCUS-VISIBLE (a11y)
+   ====================== */
+.cosmic-checkbox input:focus-visible ~ .checkbox-container .checkbox-box {
+  outline: 2px solid var(--clr-glow);
+  outline-offset: 3px;
+}
+/* From Uiverse.io by mi-series */ 
+.filtersbtn{
+    margin-top: 5px;
+    margin-bottom: 85px;
+  outline: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #6b068a;
+  min-width: 150px;
+  border: 0;
+  border-radius: 4px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, .1);
+  box-sizing: border-box;
+  padding: 16px 20px;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  overflow: hidden;
+  cursor: pointer;
+  outline: #6b068a solid 2px;
+  scale: 0.8;
+}
+
+.filtersbtn:hover {
+  opacity: .95;
+}
+
+.filtersbtn .animation {
+  border-radius: 100%;
+  animation: ripple 0.6s linear infinite;
+}
+
+@keyframes ripple {
+  0% {
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.1), 0 0 0 20px rgba(255, 255, 255, 0.1), 0 0 0 40px rgba(255, 255, 255, 0.1), 0 0 0 60px rgba(255, 255, 255, 0.1);
+  }
+
+  100% {
+    box-shadow: 0 0 0 20px rgba(255, 255, 255, 0.1), 0 0 0 40px rgba(255, 255, 255, 0.1), 0 0 0 60px rgba(255, 255, 255, 0.1), 0 0 0 80px rgba(255, 255, 255, 0);
+  }
+}
+/* From Uiverse.io by Daniel1227k */ 
+.product {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* vertical center */
+  align-items: center;     /* horizontal center */
+  width: 390px;
+  height: 200px;
+  margin: 10px;
+  text-align: center;
+  position: relative;
+  overflow: hidden; /* keep everything inside */
+}
+
+.product::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(315deg,#03a9f4,#ff0058);
+}
+
+.product::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(315deg,#03a9f4,#ff0058);
+  filter: blur(30px);
+}
+
+.product b {
+  position: absolute;
+  inset: 6px;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 2;
+}
+
+.product .imgp {
+  position: absolute;
+  top: 50%;               /* vertical center */
+  left: 50%;              /* horizontal center */
+  transform: translate(-50%, -50%) scale(0.7); /* center + scale */
+  z-index: 1;
+  opacity: 1;
+  transition: transform 0.9s, opacity 0.9s;
+}
+
+.product:hover .imgp {
+  transform: translate(-50%, -50%) scale(0.5) translateY(-70px); /* scales + moves on hover */
+  opacity: 0.3;
+}
+.product .content {
+  position: absolute;       /* still on top of image */
+  bottom: 25px;             /* distance from the bottom of card */
+  left: 50%;                /* horizontally center */
+  transform: translateX(-50%) scale(0); /* center horizontally + scale */
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;      /* center icons under text */
+  gap: 5px;                 /* space between text and icons */
+  transition: transform 0.5s;
+}
+
+.product:hover .content {
+  transform: translateX(-50%) scale(1); /* scale up smoothly on hover */
+}
+
+.content .title {
+  color: #fff;
+  font-weight: 500;
+  line-height: 1em;
+  font-size: 1em;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.content .title span {
+  font-weight: 300;
+  font-size: 0.70em;
+}
+
+.content .sci {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-top: 5px;
+}
+
+.product_listing {
+  display: flex;
+  flex-wrap: wrap;          /* allows wrapping to next row */
+  justify-content: center;  /* centers items horizontally */
+  align-items: flex-start;  /* keeps rows aligned nicely */
+  gap: 20px;                /* space between cards */
+  padding: 20px;
+}
+.product_tags {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+.product_tags i {
+  font-size: 18px;
+  color: white;
+  cursor: pointer;
+  transition: color 0.3s, transform 0.3s;
+}
+
+.product_tags i:hover {
+  color: #e81cff;
+  transform: scale(1.2);
+}
+.product .bg-img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;          /* behind everything */
+  width: 100%;
+  height: 100%;
+  object-fit: cover;    /* cover full card */
+  opacity: 1;        /* optional transparency */
+  padding: 8px
+}
