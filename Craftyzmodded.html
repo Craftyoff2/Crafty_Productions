@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fajne Modpack</title>
+<link rel="icon" type="image/x-icon" href="Images/icon.png">
+<style>
+    .container::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index:-1;
+  backdrop-filter: blur(1em) brightness(6);
+  background-image: radial-gradient(
+    circle at 50% 50%,
+    #0000 0,
+    #0000 2px,
+    hsl(0 0 4%) 2px
+  );
+  background-size: 8px 8px;
+}
+
+.container {
+    z-index:-0;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  --c: #09f;
+  background-color: #000;
+  background-image: radial-gradient(4px 100px at 0px 235px, var(--c), #0000),
+    radial-gradient(4px 100px at 300px 235px, var(--c), #0000),
+    radial-gradient(1.5px 1.5px at 150px 117.5px, var(--c) 100%, #0000 150%),
+    radial-gradient(4px 100px at 0px 252px, var(--c), #0000),
+    radial-gradient(4px 100px at 300px 252px, var(--c), #0000),
+    radial-gradient(1.5px 1.5px at 150px 126px, var(--c) 100%, #0000 150%),
+    radial-gradient(4px 100px at 0px 150px, var(--c), #0000),
+    radial-gradient(4px 100px at 300px 150px, var(--c), #0000),
+    radial-gradient(1.5px 1.5px at 150px 75px, var(--c) 100%, #0000 150%),
+    radial-gradient(4px 100px at 0px 253px, var(--c), #0000),
+    radial-gradient(4px 100px at 300px 253px, var(--c), #0000),
+    radial-gradient(1.5px 1.5px at 150px 126.5px, var(--c) 100%, #0000 150%),
+    radial-gradient(4px 100px at 0px 204px, var(--c), #0000),
+    radial-gradient(4px 100px at 300px 204px, var(--c), #0000),
+    radial-gradient(1.5px 1.5px at 150px 102px, var(--c) 100%, #0000 150%),
+    radial-gradient(4px 100px at 0px 134px, var(--c), #0000),
+    radial-gradient(4px 100px at 300px 134px, var(--c), #0000),
+    radial-gradient(1.5px 1.5px at 150px 67px, var(--c) 100%, #0000 150%),
+    radial-gradient(4px 100px at 0px 179px, var(--c), #0000),
+    radial-gradient(4px 100px at 300px 179px, var(--c), #0000),
+    radial-gradient(1.5px 1.5px at 150px 89.5px, var(--c) 100%, #0000 150%),
+    radial-gradient(4px 100px at 0px 299px, var(--c), #0000),
+    radial-gradient(4px 100px at 300px 299px, var(--c), #0000),
+    radial-gradient(1.5px 1.5px at 150px 149.5px, var(--c) 100%, #0000 150%),
+    radial-gradient(4px 100px at 0px 215px, var(--c), #0000),
+    radial-gradient(4px 100px at 300px 215px, var(--c), #0000),
+    radial-gradient(1.5px 1.5px at 150px 107.5px, var(--c) 100%, #0000 150%),
+    radial-gradient(4px 100px at 0px 281px, var(--c), #0000),
+    radial-gradient(4px 100px at 300px 281px, var(--c), #0000),
+    radial-gradient(1.5px 1.5px at 150px 140.5px, var(--c) 100%, #0000 150%),
+    radial-gradient(4px 100px at 0px 158px, var(--c), #0000),
+    radial-gradient(4px 100px at 300px 158px, var(--c), #0000),
+    radial-gradient(1.5px 1.5px at 150px 79px, var(--c) 100%, #0000 150%),
+    radial-gradient(4px 100px at 0px 210px, var(--c), #0000),
+    radial-gradient(4px 100px at 300px 210px, var(--c), #0000),
+    radial-gradient(1.5px 1.5px at 150px 105px, var(--c) 100%, #0000 150%);
+  background-size:
+    300px 235px,
+    300px 235px,
+    300px 235px,
+    300px 252px,
+    300px 252px,
+    300px 252px,
+    300px 150px,
+    300px 150px,
+    300px 150px,
+    300px 253px,
+    300px 253px,
+    300px 253px,
+    300px 204px,
+    300px 204px,
+    300px 204px,
+    300px 134px,
+    300px 134px,
+    300px 134px,
+    300px 179px,
+    300px 179px,
+    300px 179px,
+    300px 299px,
+    300px 299px,
+    300px 299px,
+    300px 215px,
+    300px 215px,
+    300px 215px,
+    300px 281px,
+    300px 281px,
+    300px 281px,
+    300px 158px,
+    300px 158px,
+    300px 158px,
+    300px 210px,
+    300px 210px,
+    300px 210px;
+  animation: hi 150s linear infinite;
+}
+
+@keyframes hi {
+  0% {
+    background-position:
+      0px 220px,
+      3px 220px,
+      151.5px 337.5px,
+      25px 24px,
+      28px 24px,
+      176.5px 150px,
+      50px 16px,
+      53px 16px,
+      201.5px 91px,
+      75px 224px,
+      78px 224px,
+      226.5px 350.5px,
+      100px 19px,
+      103px 19px,
+      251.5px 121px,
+      125px 120px,
+      128px 120px,
+      276.5px 187px,
+      150px 31px,
+      153px 31px,
+      301.5px 120.5px,
+      175px 235px,
+      178px 235px,
+      326.5px 384.5px,
+      200px 121px,
+      203px 121px,
+      351.5px 228.5px,
+      225px 224px,
+      228px 224px,
+      376.5px 364.5px,
+      250px 26px,
+      253px 26px,
+      401.5px 105px,
+      275px 75px,
+      278px 75px,
+      426.5px 180px;
+  }
+
+  to {
+    background-position:
+      0px 6800px,
+      3px 6800px,
+      151.5px 6917.5px,
+      25px 13632px,
+      28px 13632px,
+      176.5px 13758px,
+      50px 5416px,
+      53px 5416px,
+      201.5px 5491px,
+      75px 17175px,
+      78px 17175px,
+      226.5px 17301.5px,
+      100px 5119px,
+      103px 5119px,
+      251.5px 5221px,
+      125px 8428px,
+      128px 8428px,
+      276.5px 8495px,
+      150px 9876px,
+      153px 9876px,
+      301.5px 9965.5px,
+      175px 13391px,
+      178px 13391px,
+      326.5px 13540.5px,
+      200px 14741px,
+      203px 14741px,
+      351.5px 14848.5px,
+      225px 18770px,
+      228px 18770px,
+      376.5px 18910.5px,
+      250px 5082px,
+      253px 5082px,
+      401.5px 5161px,
+      275px 6375px,
+      278px 6375px,
+      426.5px 6480px;
+  }
+}
+
+body{
+  margin:0;
+  background:#0b1120;
+  color:white;
+  font-family:Arial;
+}
+
+.wrapper{
+  max-width:1000px;
+  margin:auto;
+  padding:40px 20px;
+}
+
+h1{text-align:center;font-size:3rem}
+.subtitle{text-align:center;opacity:0.7;margin-bottom:40px}
+
+.section{margin-top:60px}
+
+/* SCREENSHOTS */
+.screenshots{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:20px;
+}
+
+.screenshots img{
+  width:100%;
+  border-radius:12px;
+  transition:0.3s;
+}
+
+.screenshots img:hover{transform:scale(1.05)}
+
+/* DOWNLOAD */
+.download{text-align:center}
+
+.big-btn{
+  padding:18px 40px;
+  font-size:1.2rem;
+  border:none;
+  border-radius:12px;
+  background:#22c55e;
+  cursor:pointer;
+  margin-bottom:20px;
+}
+
+.small-buttons{
+  display:flex;
+  justify-content:center;
+  gap:15px;
+  flex-wrap:wrap;
+}
+
+.small-btn{
+  padding:10px 20px;
+  border:none;
+  border-radius:10px;
+  cursor:pointer;
+  background:#1e293b;
+  color:white;
+}
+
+.small-btn:hover{background:#334155}
+
+/* TREE */
+.tree-container {
+  margin:auto;
+  width: 100%;
+  max-width:600px;
+  border-radius: 10px;
+  padding: 20px;
+  background: rgba(20,20,30,0.9);
+  box-shadow: 0 0 20px rgba(0,0,0,0.6);
+}
+
+ul{list-style:none;padding:0;margin:0}
+ul ul{margin-left:12px;padding-left:12px;border-left:1px solid #333}
+
+.tree-label,.file-item{
+  display:flex;align-items:center;gap:8px;
+  padding:6px 10px;border-radius:6px;
+  cursor:pointer;font-size:14px;color:#cbd5e1;
+}
+
+.tree-label:hover,.file-item:hover{background:#1e293b}
+
+.tree-toggle{display:none}
+.tree-children-wrapper{display:grid;grid-template-rows:0fr;transition:0.3s}
+.tree-toggle:checked~.tree-children-wrapper{grid-template-rows:1fr}
+.tree-children{overflow:hidden}
+
+.mods{color:#22c55e}
+.shaders{color:#60a5fa}
+.resourcepacks{color:#f59e0b}
+
+</style>
+</head>
+<body>
+    <div class="container">
+<div class="wrapper">
+
+<h1>Fajne Modpack</h1>
+<p class="subtitle">Complete Minecraft experience with mods, shaders & custom content</p>
+
+<!-- SCREENSHOTS -->
+<div class="section">
+<h2>Screenshots</h2>
+<div class="screenshots">
+<img src="/Images/FajneModpack/Screenshot1.png">
+<img src="/Images/FajneModpack/Screenshot2.png">
+<img src="/Images/FajneModpack/Screenshot3.png">
+<img src="/Images/FajneModpack/Screenshot4.png">
+<img src="/Images/FajneModpack/Screenshot5.png">
+<img src="/Images/FajneModpack/Screenshot6.png">
+<img src="/Images/FajneModpack/Screenshot7.png">
+</div>
+</div>
+<!-- DOWNLOAD -->
+<div class="section download">
+<h2>Download</h2>
+<button class="big-btn" onclick="window.location.href='https://www.dropbox.com/scl/fi/30ki0fi0y89b4m96h3snu/FajneModPackFrajereLLLL.zip?rlkey=ur556855cjpzf12pldpqnfiju&st=2bn5qa7c&dl=1'">Download Modpack</button>
+<div class="small-buttons">
+<button class="small-btn" onclick="notReady()">Resource Packs</button>
+<button class="small-btn" onclick="notReady()">Shaders</button>
+<button class="small-btn" onclick="notReady()">Full Pack</button>
+</div>
+</div>
+
+<!-- INSTALLATION -->
+<div class="section">
+<h2>Installation</h2>
+<p>
+1. Install Forge<br>
+2. Download the modpack<br>
+3. Put files into your .minecraft folder<br>
+4. Launch the game and enjoy
+</p>
+</div>
+
+<!-- DESCRIPTION -->
+<div class="section">
+<h2>Description</h2>
+<p>
+This modpack combines exploration, combat, and progression. Fight bosses, discover new biomes, and experience a completely reworked Minecraft world.
+</p>
+</div>
+
+<!-- TREE AT BOTTOM -->
+<div class="section">
+<h2>Modpack Files</h2>
+<div class="tree-container">
+<ul>
+<li class="tree-item">
+<input type="checkbox" id="root" class="tree-toggle" checked>
+<label for="root" class="tree-label">📁 .minecraft</label>
+<div class="tree-children-wrapper">
+<ul class="tree-children">
+
+<li class="tree-item">
+<input type="checkbox" id="mods" class="tree-toggle" checked>
+<label for="mods" class="tree-label mods">📂 mods</label>
+<div class="tree-children-wrapper"><ul class="tree-children">
+<div class="file-item">ad_astra-forge-1.20.1-1.15.20.jar</div>
+<div class="file-item">adastraextra-forge-1.20.1-1.2.3.jar</div>
+<div class="file-item">AdvancementPlaques-1.20.1-forge-1.6.9.jar</div>
+<div class="file-item">aether-1.20.1-1.5.2-neoforge.jar</div>
+<div class="file-item">alexscaves-2.0.2.jar</div>
+<div class="file-item">alexsmobs-1.22.9.jar</div>
+<div class="file-item">ancient_elements-1.4.5.jar</div>
+<div class="file-item">appleskin-forge-mc1.20.1-2.5.1.jar</div>
+<div class="file-item">architectury-9.2.14-forge.jar</div>
+<div class="file-item">Backpacks-1.0.0-forge-1.20.1.jar</div>
+<div class="file-item">balm-forge-1.20.1-7.3.38-all.jar</div>
+<div class="file-item">BiomesOPlenty-forge-1.20.1-19.0.0.96.jar</div>
+<div class="file-item">Bookshelf-Forge-1.20.1-20.2.15.jar</div>
+<div class="file-item">boss_checklist-forge-4.2.0.jar</div>
+<div class="file-item">botarium-forge-1.20.1-2.3.4.jar</div>
+<div class="file-item">caelus-forge-3.2.0+1.20.1.jar</div>
+<div class="file-item">carryon-forge-1.20.1-2.1.2.7.jar</div>
+<div class="file-item">cinematiccataclysm-1.0.1-1.20.1.jar</div>
+<div class="file-item">citadel-2.6.3-1.20.1.jar</div>
+<div class="file-item">citadel-2.6.3-1.20.1.jar</div>
+<div class="file-item">clickadv-1.20.1-3.9.jar</div>
+<div class="file-item">cloth-config-11.1.136-forge.jar</div>
+<div class="file-item">constructionwand-1.20.1-2.11.jar</div>
+<div class="file-item">create-1.20.1-6.0.8.jar</div>
+<div class="file-item">cupboard-1.20.1-3.7.jar</div>
+<div class="file-item">curios-forge-5.14.1+1.20.1.jar</div>
+<div class="file-item">elytraslot-forge-6.4.4+1.20.1.jar</div>
+<div class="file-item">embeddium-0.3.31+mc1.20.1.jar</div>
+<div class="file-item">EnchantmentDescriptions-Forge-1.20.1-17.1.21.jar</div>
+<div class="file-item">FallingTree-1.20.1-4.3.4.jar</div>
+<div class="file-item">FarmersDelight-1.20.1-1.2.11.jar</div>
+<div class="file-item">fdlib-1.0.9-1.20.1.jar</div>
+<div class="file-item">ferritecore-6.0.1-forge.jar</div>
+<div class="file-item">geckolib-forge-1.20.1-4.8.3.jar</div>
+<div class="file-item">GlitchCore-forge-1.20.1-0.0.1.1.jar</div>
+<div class="file-item">gravestone-forge-1.20.1-1.0.35.jar</div>
+<div class="file-item">Iceberg-1.20.1-forge-1.1.25.jar</div>
+<div class="file-item">ImmediatelyFast-Forge-1.5.4+1.20.4.jar</div>
+<div class="file-item">immersive_aircraft-1.4.0+1.20.1-forge.jar</div>
+<div class="file-item">ironfurnaces-1.20.1-4.1.6.jar</div>
+<div class="file-item">ironchest-1.20.1-14.4.4.jar</div>
+<div class="file-item">Jade-1.20.1-Forge-11.13.2.jar</div>
+<div class="file-item">jei-1.20.1-forge-15.20.0.130.jar</div>
+<div class="file-item">journeymap-1.20.1-5.10.3-forge.jar</div>
+<div class="file-item">JustEnoughAdvancements-1.20.1-5.0.1.jar</div>
+<div class="file-item">L_Enders_Cataclysm-3.27-curios-fix.jar</div>
+<div class="file-item">legendarymonsters-2.0.6 MC 1.20.1.jar</div>
+<div class="file-item">LibX-1.20.1-5.0.12.jar</div>
+<div class="file-item">lionfishapi-2.7.jar</div>
+<div class="file-item">lost_aether_content-1.20.1-1.2.3.jar</div>
+<div class="file-item">mcw-doors-1.1.5-mc1.20.1forge.jar</div>
+<div class="file-item">mcw-mcwwindows-2.4.2-mc1.20.1forge.jar</div>
+<div class="file-item">modernfix-forge-5.27.8+mc1.20.1.jar</div>
+<div class="file-item">ModernxlSurvival_1.3.2_v1.20.1.jar</div>
+<div class="file-item">mowzies_cataclysm-1.2.0.jar</div>
+<div class="file-item">mowziesmobs-1.8.2.jar</div>
+<div class="file-item">oculus-mc1.20.1-1.8.0.jar</div>
+<div class="file-item">radium-mc1.20.1-0.12.4+git.26c9d8e.jar</div>
+<div class="file-item">resourcefulconfig-forge-1.20.1-2.1.3.jar</div>
+<div class="file-item">resourcefullib-forge-1.20.1-2.1.29.jar</div>
+<div class="file-item">SimpleDiscordRichPresence-forge-4.0.3-build.40+mc1.20.1.jar</div>
+<div class="file-item">structure_gel-1.20.1-2.16.2.jar</div>
+<div class="file-item">TerraBlender-forge-1.20.1-3.0.1.10.jar</div>
+
+<div class="file-item">twilightforest-1.20.1-4.3.2508-universal.jar</div>
+
+
+</ul></div>
+</li>
+
+<li class="tree-item">
+<input type="checkbox" id="shaders" class="tree-toggle">
+<label for="shaders" class="tree-label shaders">📂 shaders</label>
+<div class="tree-children-wrapper"><ul class="tree-children">
+<div class="file-item">BSL.zip</div>
+</ul></div>
+</li>
+
+<li class="tree-item">
+<input type="checkbox" id="rp" class="tree-toggle">
+<label for="rp" class="tree-label resourcepacks">📂 resourcepacks</label>
+<div class="tree-children-wrapper"><ul class="tree-children">
+<div class="file-item">BetterTextures.zip</div>
+</ul></div>
+</li>
+
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+
+</div>
+</div>
+</body>
+<script>
+function notReady(){
+  alert("❌ Not available yet!");
+}
+</script>
+</html>
