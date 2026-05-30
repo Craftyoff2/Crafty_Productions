@@ -1469,3 +1469,17 @@ html, body {
   opacity: 1;        /* optional transparency */
   padding: 8px
 }
+/* ==================== STORE WIDGET IFRAME ==================== */
+/* Center the iframe, make it ~20% shorter, and remove outlines/borders */
+.store-widget, #js-store-iframe {
+    display: block;
+    margin: 30px auto !important;
+    width: 100% !important; /* shrink width to ~80% */
+    max-width: 940px;
+    height: 187px !important; /* keep original height */
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+    background: transparent !important;
+    box-sizing: border-box;
+}

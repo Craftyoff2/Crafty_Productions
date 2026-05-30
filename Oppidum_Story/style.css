@@ -3,13 +3,20 @@ h1 {
 }
 
 .logo {
-    width: clamp(300px, 35vw, 600px);
-    max-width: 90%;
+    width: clamp(320px, 40vw, 760px);
+    max-width: 95%;
     display: block;
-    margin: 0 auto 2vh auto;
+    margin: 40px auto 30px auto;
     filter: 
         drop-shadow(0 0 15px #dfae0d60)
         drop-shadow(0 0 35px #d4eb069a);
+}
+
+@media (max-width: 700px) {
+    .logo {
+        width: min(90%, 420px);
+        margin: 30px auto 24px auto;
+    }
 }
 
 .story {
@@ -158,4 +165,36 @@ body::after {
 @keyframes pulseGlow {
     0%, 100% { opacity: 0.3; }
     50% { opacity: 0.8; }
+}
+
+/* ==================== STORE WIDGET IFRAME ==================== */
+/* Center the iframe, make it ~20% shorter, and remove outlines/borders */
+.store-widget, #js-store-iframe {
+    display: block;
+    margin: 30px auto !important;
+    width: 80% !important; /* shrink width to ~80% */
+    max-width: 940px;
+    height: 190px !important; /* keep original height */
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+    background: transparent !important;
+    box-sizing: border-box;
+}
+
+/* On narrow screens keep 20px side gaps so it never touches edges */
+@media (max-width: 700px) {
+    .store-widget, #js-store-iframe {
+        width: calc(100% - 40px) !important; /* 20px gap on each side */
+        margin: 30px 20px !important;
+        height: 190px !important; /* keep height consistent */
+    }
+}
+
+/* ==================== WISHLIST HEADING ==================== */
+.h1.wishlistnow, .wishlistnow {
+    display: block;
+    text-align: center;
+    margin: 20px auto !important;
+    width: auto;
 }
