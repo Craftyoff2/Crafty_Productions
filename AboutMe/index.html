@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crafty | Personal Hub</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <div id="particles"></div>
+
+    <div class="background-glow glow1"></div>
+    <div class="background-glow glow2"></div>
+
+    <main class="container">
+
+        <img src="profile.png" alt="Profile" class="profile">
+
+        <h1>Craftyz__</h1>
+
+        <p class="subtitle">
+            Game Developer • Mod Creator • Founder of Crafty Productions
+        </p>
+
+        <!-- SOCIALS (FIXED) -->
+        <div class="socials">
+
+            <a href="#">
+                <i class="fab fa-youtube"></i>
+                YouTube
+            </a>
+
+            <a href="#">
+                <i class="fab fa-github"></i>
+                GitHub
+            </a>
+
+            <a href="#">
+                <i class="fas fa-gamepad"></i>
+                GameJolt
+            </a>
+
+            <a href="#">
+                <i class="fab fa-discord"></i>
+                Discord
+            </a>
+
+        </div>
+
+        <!-- GAMES -->
+        <section>
+
+            <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
+                <h2 style="margin-bottom: 0;">🎮 Favorite Games</h2>
+                <button class="games-btn view-all-btn" id="expandGamesBtn">📱 View All</button>
+            </div>
+
+            <div class="scroll-row">
+
+    <!-- Subnautica -->
+    <div class="showcase-card"
+        data-game="Subnautica"
+        data-store-link="https://store.steampowered.com/app/264710/Subnautica/">
+
+        <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/264710/header.jpg?t=1777456112">
+
+        <h3>Subnautica</h3>
+        <p>Explore an alien ocean world.</p>
+
+        <button class="store-btn">🔗 Store Link</button>
+    </div>
+
+    <!-- Subnautica Below Zero -->
+    <div class="showcase-card"
+        data-game="Subnautica: Below Zero"
+        data-store-link="https://store.steampowered.com/app/848450/Subnautica_Below_Zero/">
+
+        <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/848450/header.jpg">
+
+        <h3>Subnautica: Below Zero</h3>
+        <p>Survive the frozen depths of an alien ocean.</p>
+
+        <button class="store-btn">🔗 Store Link</button>
+    </div>
+    <!-- Elden Ring -->
+    <div class="showcase-card"
+        data-game="Elden Ring"
+        data-store-link="https://store.steampowered.com/app/1245620/ELDEN_RING/">
+
+        <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1245620/header.jpg">
+
+        <h3>Elden Ring</h3>
+        <p>A vast world of dark fantasy and challenge.</p>
+
+        <button class="store-btn">🔗 Store Link</button>
+    </div>
+
+    <!-- Elden Ring Nightreign -->
+    <div class="showcase-card"
+        data-game="Elden Ring Nightreign"
+        data-store-link="https://store.steampowered.com/app/2622380/ELDEN_RING_NIGHTREIGN/">
+
+        <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2622380/header.jpg">
+
+        <h3>Elden Ring: Nightreign</h3>
+        <p>Expansion / spin-off from the Elden Ring universe.</p>
+
+        <button class="store-btn">🔗 Store Link</button>
+    </div>
+
+    <!-- Dark Souls III -->
+    <div class="showcase-card"
+        data-game="DARK SOULS™: REMASTERED"
+        data-store-link="https://store.steampowered.com/app/570940/DARK_SOULS_REMASTERED/">
+
+        <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/570940/header.jpg">
+
+        <h3>DARK SOULS™: REMASTERED</h3>
+        <p>Prepare to die in a dark fantasy world.</p>
+
+        <button class="store-btn">🔗 Store Link</button>
+    </div>
+
+    <!-- Bloodborne -->
+    <div class="showcase-card"
+        data-game="Bloodborne™: Game of the Year Edition"
+        data-store-link="https://store.playstation.com/en-cz/product/EP9000-CUSA03173_00-BLOODBORNE0000EU">
+
+        <img src="https://cdn2.steamgriddb.com/thumb/9c25cd523d07afa25654800ab6483393.jpg">
+
+        <h3>Bloodborne™: Game of the Year Edition</h3>
+        <p>Hunt through a gothic nightmare city.</p>
+
+        <button class="store-btn">🔗 Store Link</button>
+    </div>
+
+    <!-- Horizon Zero Dawn -->
+    <div class="showcase-card"
+        data-game="Horizon Zero Dawn"
+        data-store-link="https://store.steampowered.com/app/1151640/Horizon_Zero_Dawn_Complete_Edition/">
+
+        <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1151640/header.jpg">
+
+        <h3>Horizon Zero Dawn</h3>
+        <p>Fight machines in a post-apocalyptic world.</p>
+
+        <button class="store-btn">🔗 Store Link</button>
+    </div>
+
+    <!-- Hollow Knight -->
+    <div class="showcase-card"
+        data-game="Hollow Knight"
+        data-store-link="https://store.steampowered.com/app/367520/Hollow_Knight/">
+
+        <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/367520/header.jpg">
+
+        <h3>Hollow Knight</h3>
+        <p>Explore a vast underground insect kingdom.</p>
+
+        <button class="store-btn">🔗 Store Link</button>
+    </div>
+
+    <!-- Resident Evil Village -->
+    <div class="showcase-card"
+        data-game="Resident Evil Village"
+        data-store-link="https://store.steampowered.com/app/1196590/Resident_Evil_Village/">
+
+        <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1196590/header.jpg">
+
+        <h3>Resident Evil Village</h3>
+        <p>Survive a terrifying gothic village.</p>
+
+        <button class="store-btn">🔗 Store Link</button>
+    </div>
+
+    <!-- Resident Evil Biohazard -->
+    <div class="showcase-card"
+        data-game="Resident Evil 7 Biohazard"
+        data-store-link="https://store.steampowered.com/app/418370/Resident_Evil_7_Biohazard/">
+
+        <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/418370/header.jpg">
+
+        <h3>Resident Evil 7: Biohazard</h3>
+        <p>First-person horror survival experience.</p>
+
+        <button class="store-btn">🔗 Store Link</button>
+    </div>
+
+</div>
+
+        </section>
+        
+<!-- ARTISTS -->
+<section>
+
+    <div class="section-header">
+        <h2>🎵 Favorite Artists</h2>
+        <button class="artists-btn view-all-btn" id="viewArtistsBtn">
+            🎤 View All
+        </button>
+    </div>
+
+    <div class="artists-list">
+
+        <!-- LINKIN PARK -->
+        <div class="artist-card">
+            <img class="artist-logo"
+                src="https://yt3.googleusercontent.com/OtUf050j6w6iRPUmGgmzblD2saluxUusxiVmo0-SMUnWiNKwR89JL_-xJ6JvIEram8UbPT_zDA=s160-c-k-c0x00ffffff-no-rj">
+
+            <div class="artist-body">
+                <h3>Linkin Park</h3>
+
+                <div class="artist-socials">
+                    <a href="https://www.youtube.com/@linkinpark">YouTube</a>
+                </div>
+            </div>
+
+            <button class="artist-spotify-btn"
+                data-spotify="https://open.spotify.com/artist/6XyY86QOPPrYVGvF9ch6wz">
+                Spotify
+            </button>
+        </div>
+
+        <!-- MOTIONLESS IN WHITE -->
+        <div class="artist-card">
+            <img class="artist-logo"
+                src="https://yt3.googleusercontent.com/YOn9ERfk10xm5TgKHV41jHT-wh_NFOvIO-g7cbk8rhRlhfqr_Q-_-04DBq0jzid10nyVmjr6PQ=s160-c-k-c0x00ffffff-no-rj">
+
+            <div class="artist-body">
+                <h3>Motionless In White</h3>
+
+                <div class="artist-socials">
+                    <a href="https://www.youtube.com/@motionlessinwhite">YouTube</a>
+                </div>
+            </div>
+
+            <button class="artist-spotify-btn"
+                data-spotify="https://open.spotify.com/artist/6MwPCCR936cYfM1dLsGVnl">
+                Spotify
+            </button>
+        </div>
+
+        <!-- BRING ME THE HORIZON -->
+        <div class="artist-card">
+            <img class="artist-logo"
+                src="https://yt3.googleusercontent.com/X-oMlV4bVaT349vALERjK2gfLw-LyrVakuRtRE8dkAOsyYb821ab-SQWzkgY9S19G_b0nEJizTs=s160-c-k-c0x00ffffff-no-rj">
+
+            <div class="artist-body">
+                <h3>Bring Me The Horizon</h3>
+
+                <div class="artist-socials">
+                    <a href="https://www.youtube.com/@BringMeTheHorizon">YouTube</a>
+                </div>
+            </div>
+
+            <button class="artist-spotify-btn"
+                data-spotify="https://open.spotify.com/artist/1Ffb6ejR6Fe5IamqA5oRUF">
+                Spotify
+            </button>
+        </div>
+
+        <!-- TWENTY ONE PILOTS -->
+        <div class="artist-card">
+            <img class="artist-logo"
+                src="https://yt3.googleusercontent.com/QoC1MivAB-3b-lIfg8eL9boIAnpvEAkIXC9qU8Cp1JWTlBiWgX1UeQv9HsrdZk4lOjYe4XMVgg=s160-c-k-c0x00ffffff-no-rj">
+
+            <div class="artist-body">
+                <h3>Twenty One Pilots</h3>
+
+                <div class="artist-socials">
+                    <a href="https://www.youtube.com/@twentyonepilots">YouTube</a>
+                </div>
+            </div>
+
+            <button class="artist-spotify-btn"
+                data-spotify="https://open.spotify.com/artist/3YQKmKGau1PzlVlkL1iodx">
+                Spotify
+            </button>
+        </div>
+
+        <!-- SUM 41 -->
+        <div class="artist-card">
+            <img class="artist-logo"
+                src="https://yt3.googleusercontent.com/08kCjQfyxG9_BkDzoX6X_5dKNExgo3R0hRUDctj2f8H_2P6Rhcnx08loVpVUdtFJkdESQ4muX20=s160-c-k-c0x00ffffff-no-rj">
+
+            <div class="artist-body">
+                <h3>Sum 41</h3>
+
+                <div class="artist-socials">
+                    <a href="https://www.youtube.com/@sum41">YouTube</a>
+                </div>
+            </div>
+
+            <button class="artist-spotify-btn"
+                data-spotify="https://open.spotify.com/artist/0mq8ZXX0gZKc9s7y5rX0r3">
+                Spotify
+            </button>
+        </div>
+
+        <!-- BLACK VEIL BRIDES -->
+        <div class="artist-card">
+            <img class="artist-logo"
+                src="https://yt3.googleusercontent.com/9cH7bDbW0B0nQq3WfZ2UVhDy6m_MfbVwUanjDoqBc4bijvPeSajOdTnA0FJ6S6VH6Gu9ZotH-w=s160-c-k-c0x00ffffff-no-rj">
+
+            <div class="artist-body">
+                <h3>Black Veil Brides</h3>
+
+                <div class="artist-socials">
+                    <a href="https://www.youtube.com/@BlackVeilBrides">YouTube</a>
+                </div>
+            </div>
+
+            <button class="artist-spotify-btn"
+                data-spotify="https://open.spotify.com/artist/6kqx5l0y9wZkBvB0Q1">
+                Spotify
+            </button>
+        </div>
+
+        <!-- THREE DAYS GRACE -->
+        <div class="artist-card">
+            <img class="artist-logo"
+                src="https://yt3.googleusercontent.com/Qm6EokaxZO07qIHZ3mOJuUhncMa_bICaycrzXr36g5qRZlxLjcOh05njdrGPC-OI8a_xfZp6NA=s160-c-k-c0x00ffffff-no-rj">
+
+            <div class="artist-body">
+                <h3>Three Days Grace</h3>
+
+                <div class="artist-socials">
+                    <a href="https://www.youtube.com/@threedaysgrace">YouTube</a>
+                </div>
+            </div>
+
+            <button class="artist-spotify-btn"
+                data-spotify="https://open.spotify.com/artist/2F9g9xH3zexample">
+                Spotify
+            </button>
+        </div>
+
+        <!-- MY CHEMICAL ROMANCE -->
+        <div class="artist-card">
+            <img class="artist-logo"
+                src="https://yt3.googleusercontent.com/FCLan3cwDqR--T_D0HQW5m1ASHgKfzIaMeQEayoVIPHVINuFe-g9569UA59HS6Kn_heCRmZ-Ofc=s160-c-k-c0x00ffffff-no-rj">
+
+            <div class="artist-body">
+                <h3>My Chemical Romance</h3>
+
+                <div class="artist-socials">
+                    <a href="https://www.youtube.com/@MyChemicalRomance">YouTube</a>
+                </div>
+            </div>
+
+            <button class="artist-spotify-btn"
+                data-spotify="https://open.spotify.com/artist/7FBcuc1gsnv6Y1nwFtNRCb">
+                Spotify
+            </button>
+        </div>
+
+        <!-- PIERCE THE VEIL -->
+        <div class="artist-card">
+            <img class="artist-logo"
+                src="https://yt3.googleusercontent.com/rxZhOU9CXcOrDHzPJuzwJ-Gpceq3CB7bV-IydN_AC0lDiiibJc4ehICvd6WVeTau_DRTmoBpiA=s160-c-k-c0x00ffffff-no-rj">
+
+            <div class="artist-body">
+                <h3>Pierce The Veil</h3>
+
+                <div class="artist-socials">
+                    <a href="https://www.youtube.com/@piercetheveil">YouTube</a>
+                </div>
+            </div>
+
+            <button class="artist-spotify-btn"
+                data-spotify="https://open.spotify.com/artist/2nJXQq7uexample">
+                Spotify
+            </button>
+        </div>
+
+        <!-- BILLY TALENT -->
+        <div class="artist-card">
+            <img class="artist-logo"
+                src="https://yt3.googleusercontent.com/cK0eOn3NXDY4IMyBw4-_6_OwNlpr8fDeq8TzisVuV7sHC_SZm_ol3R9simPYeX3RLytaJDK5qg=s160-c-k-c0x00ffffff-no-rj">
+
+            <div class="artist-body">
+                <h3>Billy Talent</h3>
+
+                <div class="artist-socials">
+                    <a href="https://www.youtube.com/@BillyTalent">YouTube</a>
+                </div>
+            </div>
+
+            <button class="artist-spotify-btn"
+                data-spotify="https://open.spotify.com/artist/5b7Oq2example">
+                Spotify
+            </button>
+        </div>
+
+        <!-- PAPA ROACH -->
+        <div class="artist-card">
+            <img class="artist-logo"
+                src="https://yt3.googleusercontent.com/I-rMg0peaIJ34OKKwWczuYcERveUnZ0hcK1Nmlswt89clp8gusr8Xppspphv54msG9r7SdPI=s160-c-k-c0x00ffffff-no-rj">
+
+            <div class="artist-body">
+                <h3>Papa Roach</h3>
+
+                <div class="artist-socials">
+                    <a href="https://www.youtube.com/@PapaRoach">YouTube</a>
+                </div>
+            </div>
+
+            <button class="artist-spotify-btn"
+                data-spotify="https://open.spotify.com/artist/4RddZ3i9example">
+                Spotify
+            </button>
+        </div>
+
+    </div>
+
+</section>
+
+            <div class="section-header" style="margin-top:28px;">
+                <h2>💿 Favorite Albums</h2>
+                <button class="albums-btn view-all-btn" id="viewAlbumsBtn">💿 View All</button>
+            </div>
+
+            <div class="albums-list">
+                <div class="album-compact collapsed">
+                    <iframe class="album-iframe" style="border-radius:12px"
+                        src="https://open.spotify.com/embed/album/6PFPjumGRpZnBzqnDci6qJ?si=U9X1nQzFT7yjyq19olcPZQ"
+                        width="100%" height="352" frameborder="0" allowfullscreen loading="lazy"></iframe>
+                    <button class="album-toggle">Expand</button>
+                </div>
+                <div class="album-compact collapsed">
+                    <iframe class="album-iframe" style="border-radius:12px"
+                        src="https://open.spotify.com/embed/album/6IYPmM3xsOPL2XPSvf1ZAz?si=67BtDvDyQZmXLBGLTB6CCw&nd=1&dlsi=18ce3d855b6940cb"
+                        width="100%" height="352" frameborder="0" allowfullscreen loading="lazy"></iframe>
+                    <button class="album-toggle">Expand</button>
+                </div>
+                <div class="album-compact collapsed">
+                    <iframe class="album-iframe" style="border-radius:12px"
+                        src="https://open.spotify.com/embed/album/6JTBo69T5tEByZEEb4KZYl?si=h-ukB4_6R_KNgx7Vkv0oXg&nd=1&dlsi=a5b844315a724d5a"
+                        width="100%" height="352" frameborder="0" allowfullscreen loading="lazy"></iframe>
+                    <button class="album-toggle">Expand</button>
+                </div>
+                <div class="album-compact collapsed">
+                    <iframe class="album-iframe" style="border-radius:12px"
+                        src="https://open.spotify.com/embed/album/4JECM4NZhtpjDX4JbYkh00?si=t9mR2d0DTEaucbNt6cE6QQ&nd=1&dlsi=6abaa6fe97774d6c"
+                        width="100%" height="352" frameborder="0" allowfullscreen loading="lazy"></iframe>
+                    <button class="album-toggle">Expand</button>
+                </div>
+                <div class="album-compact collapsed">
+                    <iframe class="album-iframe" style="border-radius:12px"
+                        src="https://open.spotify.com/embed/album/1rqIeDLxDNH5wTVwiklzip?si=rQZnVmENRH-oISNlIRjMtA&nd=1&dlsi=9e5965cf0df140aa"
+                        width="100%" height="352" frameborder="0" allowfullscreen loading="lazy"></iframe>
+                    <button class="album-toggle">Expand</button>
+                </div>
+                <div class="album-compact collapsed">
+                    <iframe class="album-iframe" style="border-radius:12px"
+                        src="https://open.spotify.com/embed/album/2bvKgi1cdJbaURY2bN7y4p"
+                        width="100%" height="352" frameborder="0" allowfullscreen loading="lazy"></iframe>
+                    <button class="album-toggle">Expand</button>
+                </div>
+                <div class="album-compact collapsed">
+                    <iframe class="album-iframe" style="border-radius:12px"
+                        src="https://open.spotify.com/embed/album//7FqHuAvmREiIwVXVpZ9ooP?si=izEtkSj_TemHsGAOTkZb9A&nd=1&dlsi=3b808a0c79b64ad3"
+                        width="100%" height="352" frameborder="0" allowfullscreen loading="lazy"></iframe>
+                    <button class="album-toggle">Expand</button>
+                </div>
+            </div>
+
+            <h2 style="margin-top:32px;">🔥 Current Projects</h2>
+
+            <div style="display:flex; align-items:center; gap:15px; margin-bottom:20px;">
+                <h3 style="margin:0;">Projects</h3>
+                <button class="projects-btn view-all-btn" id="expandProjectsBtn">🛠️ View All</button>
+            </div>
+
+            <div class="scroll-row projects-scroll">
+                <div class="showcase-card" data-project="Strážce Kopce: Zrození Legendy" data-store-link="https://store.steampowered.com/app/4468890/Strce_Kopce_Zrozen_Legendy/">
+                    <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4468890/9a03ad020e215401278c1dc74ce6917bafff7761/header.jpg?t=1779737900">
+                    <h3>Strážce Kopce: Zrození Legendy</h3>
+                    <p>open-world survival RPG inspired by Celtic history</p>
+                    <button class="store-btn">🔗 Store Link</button>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- SPOTIFY -->
+        <section>
+
+            <div class="section-header">
+                <h2>🎧 Playlists</h2>
+                <button class="playlists-btn view-all-btn" id="viewPlaylistsBtn">🎧 View All</button>
+            </div>
+
+            <div class="playlist-wrapper">
+                <div class="playlist-compact collapsed">
+                    <iframe class="playlist-iframe" style="border-radius:12px"
+                        src="https://open.spotify.com/embed/playlist/6s7TN0mstjP8eGDW3GX5SP?si=c0d6afa4ede24702&nd=1&dlsi=e6fa622ad0aa4f02"
+                        width="100%" height="352" frameborder="0" allowfullscreen loading="lazy"></iframe>
+                    <button class="playlist-toggle">Expand</button>
+                </div>
+
+                <div class="playlist-compact collapsed">
+                    <iframe class="playlist-iframe" style="border-radius:12px"
+                        src="https://open.spotify.com/embed/playlist/5kll8xqgWeYjN6zHC8trho?si=0d5683a18cbb48c9&nd=1&dlsi=eb05e317b32b4218"
+                        width="100%" height="352" frameborder="0" allowfullscreen loading="lazy"></iframe>
+                    <button class="playlist-toggle">Expand</button>
+                </div>
+
+            </div>
+
+        </section>
+
+        <footer>
+            © 2026 Crafty | Crafty Productions
+        </footer>
+
+    </main>
+
+    <!-- GAMES MODAL -->
+    <div id="gamesModal" class="modal">
+        <div class="modal-content">
+            <button class="modal-close" id="closeModalBtn">✕</button>
+            <h2 style="color: #ff7300; margin-bottom: 25px;">🎮 All Favorite Games</h2>
+            <div class="modal-grid" id="modalGamesGrid"></div>
+        </div>
+    </div>
+    <div id="modalOverlay" class="modal-overlay"></div>
+
+    <!-- PROJECTS MODAL -->
+    <div id="projectsModal" class="modal">
+        <div class="modal-content">
+            <button class="modal-close" id="closeProjectsModal">✕</button>
+            <h2 style="color: #ff7300; margin-bottom: 25px;">🔥 All Projects</h2>
+            <div class="modal-grid" id="modalProjectsGrid"></div>
+        </div>
+    </div>
+    <div id="projectsOverlay" class="modal-overlay"></div>
+
+    <!-- SECTION MODAL -->
+    <div id="sectionModal" class="modal">
+        <div class="modal-content">
+            <button class="modal-close" id="closeSectionModal">✕</button>
+            <h2 id="sectionModalTitle" style="color: #ff7300; margin-bottom: 25px;"></h2>
+            <div class="modal-grid" id="sectionModalGrid"></div>
+        </div>
+    </div>
+    <div id="sectionOverlay" class="modal-overlay"></div>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
